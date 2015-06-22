@@ -14,6 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/node_modules
 
 # ignore vim swap files
 *.swp

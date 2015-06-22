@@ -1,4 +1,5 @@
 ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   Show.MissingContact = Marionette.ItemView.extend({
     template: "#missing-contact-view"
   });
@@ -17,7 +18,7 @@ ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbon
 
     serializeData: function() {
       var attr = this.model.attributes;
-      attr.avatarUrl = attr['avatar-url'];
+      attr.avatarUrl = attr["avatar-url"];
       return attr;
     }
   });

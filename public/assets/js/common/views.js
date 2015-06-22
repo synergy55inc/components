@@ -1,4 +1,5 @@
 ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   Views.Loading = Marionette.ItemView.extend({
     template: "#loading-view",
 
@@ -9,7 +10,7 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
       return {
         title: Marionette.getOption(this, "title"),
         message: Marionette.getOption(this, "message")
-      }
+      };
     },
 
     onShow: function(){

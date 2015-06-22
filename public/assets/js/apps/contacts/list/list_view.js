@@ -1,4 +1,5 @@
 ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   List.Layout = Marionette.LayoutView.extend({
     template: "#contact-list-layout",
 
@@ -52,7 +53,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
       var $view = this.$el;
       $view.hide().toggleClass(cssClass).fadeIn(800, function(){
         setTimeout(function(){
-          $view.toggleClass(cssClass)
+          $view.toggleClass(cssClass);
         }, 500);
       });
     },
@@ -87,14 +88,14 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
       this.listenTo(this.collection, "reset", function(){
         this.attachHtml = function(collectionView, childView, index){
           collectionView.$el.append(childView.el);
-        }
+        };
       });
     },
 
     onRenderCollection: function(){
       this.attachHtml = function(collectionView, childView, index){
         collectionView.$el.prepend(childView.el);
-      }
+      };
     }
   });
 });

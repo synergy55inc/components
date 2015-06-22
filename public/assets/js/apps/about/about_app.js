@@ -1,4 +1,5 @@
 ContactManager.module("AboutApp", function(AboutApp, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   AboutApp.Router = Marionette.AppRouter.extend({
     appRoutes: {
       "about" : "showAbout"

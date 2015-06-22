@@ -1,7 +1,8 @@
 ContactManager.module("Entities", function(Entities, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   Entities.BaseModel = Backbone.Model.extend({
     sync: function(method, model, options) {
-      if (method === 'create' || method === 'update') {
+      if (method === "create" || method === "update") {
         _.defaults(options || (options = {}), {
           attrs: {
             data: model.toJSON()

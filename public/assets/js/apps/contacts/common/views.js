@@ -1,4 +1,5 @@
 ContactManager.module("ContactsApp.Common.Views", function(Views, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   Views.Form = Marionette.ItemView.extend({
     template: "#contact-form",
 
@@ -23,13 +24,13 @@ ContactManager.module("ContactsApp.Common.Views", function(Views, ContactManager
         $form.find(".control-group.error").each(function(){
           $(this).removeClass("error");
         });
-      }
+      };
 
       var markErrors = function(value, key){
         var $controlGroup = $view.find("#contact-" + key).parent();
         var $errorEl = $("<span>", { class: "help-inline error", text: value });
         $controlGroup.append($errorEl).addClass("error");
-      }
+      };
 
       clearFormErrors();
       _.each(errors, markErrors);

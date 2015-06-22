@@ -1,4 +1,5 @@
 ContactManager.module("HeaderApp", function(Header, ContactManager, Backbone, Marionette, $, _){
+    "use strict";
   var API = {
     listHeader: function(){
       Header.List.Controller.listHeader();

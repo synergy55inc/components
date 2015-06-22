@@ -1,4 +1,5 @@
 ContactManager.module("ContactsApp.Edit", function(Edit, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   Edit.Controller = {
     editContact: function(id){
       var loadingView = new ContactManager.Common.Views.Loading();

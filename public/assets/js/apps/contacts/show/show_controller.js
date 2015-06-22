@@ -1,4 +1,5 @@
 ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   Show.Controller = {
     showContact: function(id){
       var loadingView = new ContactManager.Common.Views.Loading();
@@ -23,5 +24,5 @@ ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbon
         ContactManager.regions.main.show(contactView);
       });
     }
-  }
+  };
 });

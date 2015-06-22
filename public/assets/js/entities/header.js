@@ -1,4 +1,5 @@
 ContactManager.module("Entities", function(Entities, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   Entities.Header = Backbone.Model.extend({
     initialize: function(){
       var selectable = new Backbone.Picky.Selectable(this);

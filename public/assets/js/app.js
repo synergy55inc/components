@@ -1,3 +1,5 @@
+(function () {
+  "use strict";
 var ContactManager = new Marionette.Application();
 
 ContactManager.navigate = function(route,  options){
@@ -6,7 +8,7 @@ ContactManager.navigate = function(route,  options){
 };
 
 ContactManager.getCurrentRoute = function(){
-  return Backbone.history.fragment
+  return Backbone.history.fragment;
 };
 
 ContactManager.on("before:start", function(){
@@ -57,3 +59,4 @@ ContactManager.on("start", function(){
     }
   }
 });
+}());

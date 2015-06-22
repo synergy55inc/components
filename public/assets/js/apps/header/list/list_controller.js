@@ -1,4 +1,5 @@
 ContactManager.module("HeaderApp.List", function(List, ContactManager, Backbone, Marionette, $, _){
+  "use strict";
   List.Controller = {
     listHeader: function(){
       var links = ContactManager.request("header:entities");

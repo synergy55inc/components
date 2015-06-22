@@ -1,8 +1,11 @@
-ContactManager.module("AboutApp.Show", function(Show, ContactManager, Backbone, Marionette, $, _){
-  Show.Controller = {
-    showAbout: function(){
-      var view = new Show.Message();
-      ContactManager.regions.main.show(view);
-    }
-  };
-});
+'use strict';
+
+import app from 'app';
+import ShowMessage from './show_view';
+
+export default {
+  showAbout: function() {
+    var view = new ShowMessage();
+    app.regions.main.show(view);
+  }
+};

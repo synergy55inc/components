@@ -1,0 +1,50 @@
+{
+    "language": {
+        "javascript": {
+            "linting.prefer": [
+                "JSHint",
+                "JSCS"
+            ],
+            "linting.usePreferredOnly": true
+        }
+    },
+    "fileFilters": [
+        {
+            "name": "Almost Everything",
+            "patterns": [
+                "node_modules",
+                "vendor",
+                ".css",
+                ".less",
+                ".html",
+                ".tpl",
+                ".git",
+                "log",
+                "/lib",
+                "/app/controllers",
+                ".rb"
+            ]
+        },
+        {
+            "name": "",
+            "patterns": [
+                "node_modules"
+            ]
+        },
+        {
+            "name": "Show HTML and Styles",
+            "patterns": [
+                "*.js",
+                "node_modules"
+            ]
+        }
+    ],
+    "jwolfe.file-tree-exclude.list": [
+      "node_modules",
+      ".git",
+      "test/**/*",
+      "bin/**/*",
+      "db/**/*",
+      "*.rb"
+    ]
+}

@@ -1,38 +1,19 @@
-ContactManager.module("HeaderApp.List", function(List, ContactManager, Backbone, Marionette, $, _){
-  List.Header = Marionette.ItemView.extend({
-    template: "#header-link",
-    tagName: "li",
+'use strict';
+import Marionette from 'marionette';
+import ItemView   from './listitem_view';
 
-    events: {
-      "click a": "navigate"
-    },
+export default Marionette.CompositeView.extend({
+  template: 'header',
+  className: 'navbar navbar-inverse navbar-fixed-top',
+  childView: ItemView,
+  childViewContainer: 'ul',
 
-    navigate: function(e){
-      e.preventDefault();
-      this.trigger("navigate", this.model);
-    },
+  events: {
+    'click a.brand': 'brandClicked'
+  },
 
-    onRender: function(){
-      if(this.model.selected){
-        // add class so Bootstrap will highlight the active entry in the navbar
-        this.$el.addClass("active");
-      };
-    }
-  });
-
-  List.Headers = Marionette.CompositeView.extend({
-    template: "#header-template",
-    className: "navbar navbar-inverse navbar-fixed-top",
-    childView: List.Header,
-    childViewContainer: "ul",
-
-    events: {
-      "click a.brand": "brandClicked"
-    },
-
-    brandClicked: function(e){
-      e.preventDefault();
-      this.trigger("brand:clicked");
-    }
-  });
+  brandClicked: function(e) {
+    e.preventDefault();
+    this.trigger('brand:clicked');
+  }
 });

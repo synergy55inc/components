@@ -1,5 +1,3 @@
-(function(){
-  "use strict";
 var ContactManager = new Marionette.Application();
 
 ContactManager.navigate = function(route,  options){
@@ -59,4 +57,3 @@ ContactManager.on("start", function(){
     }
   }
 });
-}());

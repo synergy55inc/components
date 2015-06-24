@@ -15,9 +15,25 @@ module.exports = function(grunt) {
         'Gruntfile.js'
       ]
 
+    },
+    transpile: {
+      amd: {
+        type: 'amd',
+        files: [{
+          expand: true,
+          cwd: 'test/',
+          src: ['*.js'],
+          dest: 'tmp1/',
+          ext: '.amd.js'
+        }]
+      }
     }
+
 
   });
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-es6-module-transpiler');
+
   grunt.registerTask('default',['jshint']);
+  grunt.registerTask('trans',['transpile']);
 };

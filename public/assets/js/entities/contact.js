@@ -9,7 +9,7 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
     },
 
     validate: function(attrs, options) {
-      var errors = {}
+      var errors = {};
       if (! attrs.firstName) {
         errors.firstName = "can't be blank";
       }
@@ -31,13 +31,13 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
       if (response && response.contact) {
         data = response.contact;
       }
-      data.fullName = data.firstName + ' ' + data.lastName;
+      data.fullName = data.firstName + " " + data.lastName;
 //      data.avatarUrl = data['avatar-url'];
       return data;
     },
 
     sync: function(method, model, options) {
-      console.log('Contact sync function called.');
+      console.log("Contact sync function called.");
       return Entities.BaseModel.prototype.sync.call(this, method, model, options);
     }
   });

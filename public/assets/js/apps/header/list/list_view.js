@@ -16,7 +16,7 @@ ContactManager.module("HeaderApp.List", function(List, ContactManager, Backbone,
       if(this.model.selected){
         // add class so Bootstrap will highlight the active entry in the navbar
         this.$el.addClass("active");
-      };
+      }
     }
   });
 

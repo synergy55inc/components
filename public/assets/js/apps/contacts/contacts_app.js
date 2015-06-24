@@ -49,7 +49,7 @@ ContactManager.module("ContactsApp", function(ContactsApp, ContactManager, Backb
   });
 
   ContactsApp.on("start", function(){
-    new ContactsApp.Router({
+  new ContactsApp.Router({
       controller: API
     });
   });

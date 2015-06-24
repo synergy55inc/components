@@ -23,5 +23,5 @@ ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbon
         ContactManager.regions.main.show(contactView);
       });
     }
-  }
+  };
 });

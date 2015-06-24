@@ -9,7 +9,7 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
       return {
         title: Marionette.getOption(this, "title"),
         message: Marionette.getOption(this, "message")
-      }
+      };
     },
 
     onShow: function(){

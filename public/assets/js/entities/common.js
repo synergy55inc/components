@@ -1,7 +1,7 @@
 ContactManager.module("Entities", function(Entities, ContactManager, Backbone, Marionette, $, _){
   Entities.BaseModel = Backbone.Model.extend({
     sync: function(method, model, options) {
-      if (method === 'create' || method === 'update') {
+      if (method === "create" || method === "update") {
         _.defaults(options || (options = {}), {
           attrs: {
             data: model.toJSON()
@@ -19,7 +19,7 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
     filtered.filterFunction = options.filterFunction;
 
     var applyFilter = function(filterCriterion, filterStrategy, collection){
-      var collection = collection || original;
+      //var collection = collection || original;
       var criterion;
       if(filterStrategy == "filter"){
         criterion = filterCriterion.trim();

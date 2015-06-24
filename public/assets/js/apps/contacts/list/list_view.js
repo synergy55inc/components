@@ -78,7 +78,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
   List.Contacts = Marionette.CompositeView.extend({
     tagName: "table",
     className: "table table-hover",
-    template: "#contact-list",
+    template: window["JST"]["public/assets/js/templates/contactlist.html"],
     emptyView: NoContactsView,
     childView: List.Contact,
     childViewContainer: "tbody",

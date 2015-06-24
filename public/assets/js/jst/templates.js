@@ -33,3 +33,13 @@ __e( name ) +
 }
 return __p
 };
+
+this["JST"]["public/assets/js/templates/missing.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="alert alert-error">This contact doesn\'t exist !</div>\r\n';
+
+}
+return __p
+};

@@ -48,6 +48,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jst');
+  grunt.loadNpmTasks('grunt-es6-module-transpiler');
 
   grunt.registerTask('default',['jshint']);
+  grunt.registerTask('trans',['transpile']);
 };

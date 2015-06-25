@@ -60,13 +60,13 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<td>' +
 __e( firstName ) +
-'</td>\r\n<td>' +
+'</td>\n<td>' +
 __e( lastName ) +
-'</td>\r\n<td>\r\n  <a href="#contacts/' +
+'</td>\n<td>\n  <a href="#contacts/' +
 __e( id ) +
-'" class="btn btn-small js-show">\r\n    <i class="icon-eye-open"></i>\r\n    Show\r\n  </a>\r\n  <a href="#contacts/' +
+'" class="btn btn-small js-show">\n    <i class="icon-eye-open"></i>\n    Show\n  </a>\n  <a href="#contacts/' +
 __e( id ) +
-'/edit" class="btn btn-small js-edit">\r\n    <i class="icon-pencil"></i>\r\n    Edit\r\n  </a>\r\n  <button class="btn btn-small js-delete">\r\n    <i class="icon-remove"></i>\r\n    Delete\r\n  </button>\r\n</td>\r\n';
+'/edit" class="btn btn-small js-edit">\n    <i class="icon-pencil"></i>\n    Edit\n  </a>\n  <button class="btn btn-small js-delete">\n    <i class="icon-remove"></i>\n    Delete\n  </button>\n</td>\n';
 
 }
 return __p
@@ -135,6 +135,16 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="alert alert-error">This contact doesn\'t exist !</div>\n';
+
+}
+return __p
+};
+
+this["JST"]["public/assets/js/templates/nocontacts.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<td colspan="3">No contacts to display.</td>\r\n';
 
 }
 return __p

@@ -70,7 +70,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
   });
 
   var NoContactsView = Marionette.ItemView.extend({
-    template: "#contact-list-none",
+    template: window["JST"]["public/assets/js/templates/nocontacts.html"],
     tagName: "tr",
     className: "alert"
   });

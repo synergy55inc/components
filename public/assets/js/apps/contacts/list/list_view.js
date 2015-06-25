@@ -1,6 +1,6 @@
 ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbone, Marionette, $, _){
   List.Layout = Marionette.LayoutView.extend({
-    template: "#contact-list-layout",
+    template: window["JST"]["public/assets/js/templates/contactlistlayout.html"],
 
     regions: {
       panelRegion: "#panel-region",

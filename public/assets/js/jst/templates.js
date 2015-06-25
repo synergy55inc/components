@@ -20,11 +20,21 @@ __p += '<thead>\r\n  <tr>\r\n    <th>First Name</th>\r\n    <th>Last Name</th>\r
 return __p
 };
 
+this["JST"]["public/assets/js/templates/contactlistlayout.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div id="panel-region"></div>\r\n<div id="contacts-region"></div>\r\n';
+
+}
+return __p
+};
+
 this["JST"]["public/assets/js/templates/contactlistpanel.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<button class="btn btn-primary js-new">New contact</button>\r\n<form id="filter-form" class="form-search form-inline pull-right">\r\n  <div class="input-append">\r\n    <input type="text" class="span2 search-query js-filter-criterion">\r\n    <button type="submit" class="btn">Filter contacts</button>\r\n  </div>\r\n</form>\r\n';
+__p += '<button class="btn btn-primary js-new">New contact</button>\n<form id="filter-form" class="form-search form-inline pull-right">\n  <div class="input-append">\n    <input type="text" class="span2 search-query js-filter-criterion">\n    <button type="submit" class="btn">Filter contacts</button>\n  </div>\n</form>\n';
 
 }
 return __p

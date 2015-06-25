@@ -16,13 +16,13 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<h1>' +
 __e( fullName ) +
-'</h1>\r\n<a href="#contacts/' +
+'</h1>\n<a href="#contacts/' +
 __e( id ) +
-'/edit" class="btn btn-small js-edit">\r\n  <i class="icon-pencil"></i>\r\n  Edit this contact\r\n</a>\r\n<p><strong>Avatar:</strong> ' +
+'/edit" class="btn btn-small js-edit">\n  <i class="icon-pencil"></i>\n  Edit this contact\n</a>\n<p><strong>Avatar:</strong> ' +
 __e( avatarUrl ) +
-'</p>\r\n<p><strong>Phone number:</strong> ' +
+'</p>\n<p><strong>Phone number:</strong> ' +
 __e( phoneNumber ) +
-'</p>\r\n';
+'</p>\n';
 
 }
 return __p
@@ -49,6 +49,24 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<thead>\r\n  <tr>\r\n    <th>First Name</th>\r\n    <th>Last Name</th>\r\n    <th></th>\r\n  </tr>\r\n</thead>\r\n<tbody>\r\n</tbody>\r\n';
+
+}
+return __p
+};
+
+this["JST"]["public/assets/js/templates/contactlistitem.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<td>' +
+__e( firstName ) +
+'</td>\r\n<td>' +
+__e( lastName ) +
+'</td>\r\n<td>\r\n  <a href="#contacts/' +
+__e( id ) +
+'" class="btn btn-small js-show">\r\n    <i class="icon-eye-open"></i>\r\n    Show\r\n  </a>\r\n  <a href="#contacts/' +
+__e( id ) +
+'/edit" class="btn btn-small js-edit">\r\n    <i class="icon-pencil"></i>\r\n    Edit\r\n  </a>\r\n  <button class="btn btn-small js-delete">\r\n    <i class="icon-remove"></i>\r\n    Delete\r\n  </button>\r\n</td>\r\n';
 
 }
 return __p

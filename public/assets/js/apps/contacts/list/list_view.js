@@ -36,7 +36,7 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
   List.Contact = Marionette.ItemView.extend({
     tagName: "tr",
-    template: "#contact-list-item",
+    template: window["JST"]["public/assets/js/templates/contactlistitem.html"],
 
     triggers: {
       "click td a.js-show": "contact:show",

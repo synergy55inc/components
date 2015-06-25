@@ -4,7 +4,7 @@ ContactManager.module("ContactsApp.Show", function(Show, ContactManager, Backbon
   });
 
   Show.Contact = Marionette.ItemView.extend({
-    template: "#contact-view",
+    template: window["JST"]["public/assets/js/templates/conctactview.html"],
 
     events: {
       "click a.js-edit": "editClicked"

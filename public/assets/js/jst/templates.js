@@ -10,6 +10,24 @@ __p += '<h1>About this application</h1>\n<p>This application was designed to acc
 return __p
 };
 
+this["JST"]["public/assets/js/templates/conctactview.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<h1>' +
+__e( fullName ) +
+'</h1>\r\n<a href="#contacts/' +
+__e( id ) +
+'/edit" class="btn btn-small js-edit">\r\n  <i class="icon-pencil"></i>\r\n  Edit this contact\r\n</a>\r\n<p><strong>Avatar:</strong> ' +
+__e( avatarUrl ) +
+'</p>\r\n<p><strong>Phone number:</strong> ' +
+__e( phoneNumber ) +
+'</p>\r\n';
+
+}
+return __p
+};
+
 this["JST"]["public/assets/js/templates/contactform.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -86,9 +104,9 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<h1>' +
 __e( title ) +
-'</h1>\r\n<p>' +
+'</h1>\n<p>' +
 __e( message ) +
-'</p>\r\n<div id="spinner"></div>\r\n';
+'</p>\n<div id="spinner"></div>\n';
 
 }
 return __p

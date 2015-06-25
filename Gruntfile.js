@@ -30,6 +30,18 @@ module.exports = function(grunt) {
           'public/assets/js/jst/templates.js': ["public/assets/js/**/*.html"]
         }
       }
+    },
+    transpile: {
+      amd: {
+        type: 'amd',
+        files: [{
+          expand: true,
+          cwd: 'test/',
+          src: ['*.js'],
+          dest: 'tmp1/',
+          ext: '.amd.js'
+        }]
+      }
     }
 
   });

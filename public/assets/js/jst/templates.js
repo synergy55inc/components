@@ -10,6 +10,22 @@ __p += '<h1>About this application</h1>\n<p>This application was designed to acc
 return __p
 };
 
+this["JST"]["public/assets/js/templates/contactform.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<form>\r\n  <div class="control-group">\r\n    <label for="contact-firstName" class="control-label">First name:</label>\r\n    <input id="contact-firstName" name="firstName" type="text" value="' +
+__e( firstName ) +
+'"/>\r\n  </div>\r\n  <div class="control-group">\r\n    <label for="contact-lastName" class="control-label">Last name:</label>\r\n    <input id="contact-lastName" name="lastName" type="text" value="' +
+__e( lastName ) +
+'"/>\r\n  </div>\r\n  <div class="control-group">\r\n    <label for="contact-phoneNumber" class="control-label">Phone number:</label>\r\n    <input id="contact-phoneNumber" name="phoneNumber" type="text" value="' +
+__e( phoneNumber ) +
+'"/>\r\n  </div>\r\n  <button class="btn js-submit">Save</button>\r\n</form>\r\n';
+
+}
+return __p
+};
+
 this["JST"]["public/assets/js/templates/contactlist.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -24,7 +40,7 @@ this["JST"]["public/assets/js/templates/contactlistlayout.html"] = function(obj)
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="panel-region"></div>\r\n<div id="contacts-region"></div>\r\n';
+__p += '<div id="panel-region"></div>\n<div id="contacts-region"></div>\n';
 
 }
 return __p

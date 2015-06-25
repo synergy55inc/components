@@ -1,6 +1,6 @@
 ContactManager.module("ContactsApp.Common.Views", function(Views, ContactManager, Backbone, Marionette, $, _){
   Views.Form = Marionette.ItemView.extend({
-    template: "#contact-form",
+    template: window["JST"]["public/assets/js/templates/contactform.html"] ,
 
     events: {
       "click button.js-submit": "submitClicked"

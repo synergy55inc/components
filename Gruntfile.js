@@ -36,20 +36,28 @@ module.exports = function(grunt) {
         type: 'amd',
         files: [{
           expand: true,
-          cwd: 'test/',
-          src: ['*.js'],
-          dest: 'tmp1/',
+          cwd: 'public/assets/js',
+          src: ['test/*.js'],
+          dest: 'public/assets/js/tmp1',
           ext: '.amd.js'
         }]
       }
+    },
+    concat: {
+      amd: {
+        src: "public/assets/js/tmp1/test/*.amd.js",
+        dest: "public/assets/js/my_library.amd.js"
+      }
     }
+
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-es6-module-transpiler');
+  grunt.loadNpmTasks("grunt-contrib-concat");
 
   grunt.registerTask('default',['jshint']);
-  grunt.registerTask('trans',['transpile']);
+  grunt.registerTask('trans',['transpile', 'concat']);
 };

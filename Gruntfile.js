@@ -33,20 +33,20 @@ module.exports = function(grunt) {
     },
     transpile: {
       amd: {
-        type: 'amd',
+        type: 'cjs',
         files: [{
           expand: true,
           cwd: 'public/assets/js',
           src: ['test/*.js'],
           dest: 'public/assets/js/tmp1',
-          ext: '.amd.js'
+          ext: '.js'
         }]
       }
     },
     concat: {
       amd: {
-        src: "public/assets/js/tmp1/test/*.amd.js",
-        dest: "public/assets/js/my_library.amd.js"
+        src: "public/assets/js/tmp1/test/*.js",
+        dest: "public/assets/js/my_library.js"
       }
     }
 

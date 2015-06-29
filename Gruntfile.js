@@ -48,13 +48,16 @@ module.exports = function(grunt) {
         src: "public/assets/js/tmp1/test/*.js",
         dest: "public/assets/js/my_library.js"
       }
-    }
+    },
+    babel: {
 
+    }
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jst');
+  grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-es6-module-transpiler');
   grunt.loadNpmTasks("grunt-contrib-concat");
 

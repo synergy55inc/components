@@ -27,12 +27,12 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'public/assets/js/jst/templates.js': ["public/assets/js/**/*.html"]
+          'public/assets/js/jst/templates.js': ['public/assets/js/**/*.html']
         }
       }
     },
     transpile: {
-      amd: {
+      cjs: {
         type: 'cjs',
         files: [{
           expand: true,
@@ -44,14 +44,24 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      amd: {
-        src: "public/assets/js/tmp1/test/*.js",
-        dest: "public/assets/js/my_library.js"
+      cjs: {
+        src: 'public/assets/js/test/*.js',
+        dest: 'public/assets/js/my_library.js'
       }
     },
     babel: {
+      compile: {
+        options: {
+            modules: 'commonStrict',
+            optional:['es6.modules']
+        },
+        files: [{
+          src:  ['public/assets/js/my_library.js'],
+          dest: 'public/assets/js/app_compiled.js'
+        }]
 
-    }
+      }
+  }
 
   });
 
@@ -59,8 +69,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-es6-module-transpiler');
-  grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default',['jshint']);
+  grunt.registerTask('compile',['concat','babel']);
   grunt.registerTask('trans',['transpile', 'concat']);
 };

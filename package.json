@@ -7,6 +7,8 @@
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-jst": "^0.6.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "load-grunt-tasks": "~3.2.0",
     "grunt-es6-module-transpiler": "^0.6.0"
   }
 }

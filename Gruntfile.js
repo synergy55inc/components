@@ -49,29 +49,46 @@ module.exports = function(grunt) {
         dest: 'public/assets/js/my_library.js'
       }
     },
-    babel: {
-      compile: {
-        options: {
-            modules: 'commonStrict',
-            optional:['es6.modules']
-        },
-        files: [{
-          src:  ['public/assets/js/my_library.js'],
-          dest: 'public/assets/js/app_compiled.js'
-        }]
+    clean: ["dist"],
 
+//    babel: {
+//      compile: {
+//        options: {
+//            modules: 'commonStrict',
+//            optional:['es6.modules']
+//        },
+//        files: [{
+//          src:  ['public/assets/js/my_library.js'],
+//          dest: 'public/assets/js/app_compiled.js'
+//        }]
+//
+//      }
+//  }
+    babel: {
+      options: {
+        sourceMap: false,
+        modules: "commonStrict"
+      },
+      dist: {
+        files: [{
+          cwd: 'public',
+          src: ['assets/js/test/*.js'],
+          dest: 'public/assets/js',
+          ext:'.js'
+        }]
       }
-  }
+    }
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-es6-module-transpiler');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default',['jshint']);
-  grunt.registerTask('compile',['concat','babel']);
+  grunt.registerTask('compile',['clean','babel']);
   grunt.registerTask('trans',['transpile', 'concat']);
 };

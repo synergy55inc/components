@@ -1,15 +1,22 @@
-var ContactManager = new Marionette.Application();
+'use strict';
+var $ = require('./vendor/jquery');
+var _ = require('underscore');
 
-ContactManager.navigate = function(route,  options){
+var Marionette = require('backbone.marionette');
+
+console.log('in app, underscore time', _.now());
+
+var ContactManager = new Marionette.Application();
+ContactManager.navigate = function(route,  options) {
   options = options || {};
   Backbone.history.navigate(route, options);
 };
 
-ContactManager.getCurrentRoute = function(){
+ContactManager.getCurrentRoute = function() {
   return Backbone.history.fragment;
 };
 
-ContactManager.on("before:start", function(){
+ContactManager.on("before:start", function() {
   _.templateSettings = {
     interpolate: /\{\{=(.+?)\}\}/g,
     escape: /\{\{-(.+?)\}\}/g,
@@ -27,9 +34,9 @@ ContactManager.on("before:start", function(){
   });
 
   ContactManager.regions = new RegionContainer();
-  ContactManager.regions.dialog.onShow = function(view){
+  ContactManager.regions.dialog.onShow = function(view) {
     var self = this;
-    var closeDialog = function(){
+    var closeDialog = function() {
       self.stopListening();
       self.empty();
       self.$el.dialog("destroy");
@@ -41,19 +48,21 @@ ContactManager.on("before:start", function(){
       modal: true,
       title: view.title,
       width: "auto",
-      close: function(e, ui){
+      close: function(e, ui) {
         closeDialog();
       }
     });
   };
 });
 
-ContactManager.on("start", function(){
-  if(Backbone.history){
+ContactManager.on("start", function() {
+  if (Backbone.history) {
     Backbone.history.start();
 
-    if(this.getCurrentRoute() === ""){
+    if (this.getCurrentRoute() === "") {
       ContactManager.trigger("contacts:list");
     }
   }
 });
+
+window.ContactManager = ContactManager;

@@ -1,0 +1,21 @@
+{
+  "jslint.options": {
+    "white": true,
+    "predef": [
+      "define",
+      "$",
+      "_",
+      "Backbone",
+      "Marionette",
+      "LoadingViews"
+    ],
+    "vars": true,
+    "plusplus": true,
+    "devel": true,
+    "nomen": true,
+    "maxerr": 50,
+    "node": true,
+    "es6": true,
+    "strict": true
+  }
+}

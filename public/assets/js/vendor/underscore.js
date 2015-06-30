@@ -767,6 +767,7 @@
   // Returns a function that is the composition of a list of functions, each
   // consuming the return value of the function that follows.
   _.compose = function() {
+    console.log('in vendor compose');
     var funcs = arguments;
     return function() {
       var args = arguments;

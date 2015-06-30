@@ -1,5 +1,5 @@
 'use strict';
-var $ = require('./vendor/jquery');
+//var $ = require('jquery');
 var _ = require('underscore');
 
 var Marionette = require('backbone.marionette');
@@ -7,6 +7,7 @@ var Marionette = require('backbone.marionette');
 console.log('in app, underscore time', _.now());
 
 var ContactManager = new Marionette.Application();
+
 ContactManager.navigate = function(route,  options) {
   options = options || {};
   Backbone.history.navigate(route, options);
@@ -15,6 +16,7 @@ ContactManager.navigate = function(route,  options) {
 ContactManager.getCurrentRoute = function() {
   return Backbone.history.fragment;
 };
+console.log('ContactManager:', ContactManager, ContactManager.getCurrentRoute());
 
 ContactManager.on("before:start", function() {
   _.templateSettings = {

@@ -14,7 +14,7 @@
   "trailing": true,
   "undef": true,
   "unused": false,
-  "strict": false,
+  "strict": true,
   "devel": true,
   "predef": [
     "define", "$", "_", "Backbone", "Marionette", "ContactManager"

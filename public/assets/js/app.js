@@ -68,7 +68,6 @@ app.on('start', function() {
   staticView.render();
   console.log('staticView', staticView);
 
-
   if (Backbone.history) {
     Backbone.history.start();
 

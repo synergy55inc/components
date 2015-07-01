@@ -1,3 +1,4 @@
+'use strict';
 import Marionette from 'backbone.marionette';
 import ItemView   from './listitem_view';
 

@@ -17,6 +17,6 @@
 
 // Load & start our app
 var app = require('./app');
-ContactManager.start();
+app.start();
 
-console.log('after start');
+console.log('after start', app);

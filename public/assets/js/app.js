@@ -1,24 +1,19 @@
 'use strict';
-//var $ = require('jquery');
-var _ = require('underscore');
+import _ from 'underscore';
+import Marionette from 'backbone.marionette';
 
-var Marionette = require('backbone.marionette');
+var app = new Marionette.Application();
 
-console.log('in app, underscore time', _.now());
-
-var ContactManager = new Marionette.Application();
-
-ContactManager.navigate = function(route,  options) {
+app.navigate = function(route,  options) {
   options = options || {};
   Backbone.history.navigate(route, options);
 };
 
-ContactManager.getCurrentRoute = function() {
+app.getCurrentRoute = function() {
   return Backbone.history.fragment;
 };
-console.log('ContactManager:', ContactManager, ContactManager.getCurrentRoute());
 
-ContactManager.on("before:start", function() {
+app.on('before:start', function() {
   _.templateSettings = {
     interpolate: /\{\{=(.+?)\}\}/g,
     escape: /\{\{-(.+?)\}\}/g,
@@ -26,45 +21,45 @@ ContactManager.on("before:start", function() {
   };
 
   var RegionContainer = Marionette.LayoutView.extend({
-    el: "#app-container",
+    el: '#app-container',
 
     regions: {
-      header: "#header-region",
-      main: "#main-region",
-      dialog: "#dialog-region"
+      header: '#header-region',
+      main: '#main-region',
+      dialog: '#dialog-region'
     }
   });
 
-  ContactManager.regions = new RegionContainer();
-  ContactManager.regions.dialog.onShow = function(view) {
-    var self = this;
-    var closeDialog = function() {
-      self.stopListening();
-      self.empty();
-      self.$el.dialog("destroy");
-    };
-
-    this.listenTo(view, "dialog:close", closeDialog);
-
-    this.$el.dialog({
-      modal: true,
-      title: view.title,
-      width: "auto",
-      close: function(e, ui) {
-        closeDialog();
-      }
-    });
-  };
+  app.regions = new RegionContainer();
+//  app.regions.dialog.onShow = function(view) {
+//    var self = this;
+//    var closeDialog = function() {
+//      self.stopListening();
+//      self.empty();
+//      self.$el.dialog('destroy');
+//    };
+//
+//    this.listenTo(view, 'dialog:close', closeDialog);
+//
+//    this.$el.dialog({
+//      modal: true,
+//      title: view.title,
+//      width: 'auto',
+//      close: function(e, ui) {
+//        closeDialog();
+//      }
+//    });
+//  };
 });
 
-ContactManager.on("start", function() {
+app.on('start', function() {
   if (Backbone.history) {
     Backbone.history.start();
 
-    if (this.getCurrentRoute() === "") {
-      ContactManager.trigger("contacts:list");
+    if (this.getCurrentRoute() === '') {
+      app.trigger('contacts:list');
     }
   }
 });
 
-window.ContactManager = ContactManager;
+export default app;

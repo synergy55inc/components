@@ -21,5 +21,6 @@
   ],
   "browser": true,
   "nonstandard": true,
-  "node": true
+  "node": true,
+  "esnext": true
 }

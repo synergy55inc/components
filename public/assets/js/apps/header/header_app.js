@@ -1,15 +1,37 @@
-ContactManager.module("HeaderApp", function(Header, ContactManager, Backbone, Marionette, $, _){
-  var API = {
-    listHeader: function(){
-      Header.List.Controller.listHeader();
-    }
-  };
+'use strict';
+import app from '../../app';
+import ListView from './list/list_view';
+//var API = {
+//  listHeader: function(){
+//    Header.List.Controller.listHeader();
+//  }
+//};
 
-  ContactManager.commands.setHandler("set:active:header", function(name){
-    ContactManager.HeaderApp.List.Controller.setActiveHeader(name);
+//app.commands.setHandler('set:active:header', function(name) {
+//  app.HeaderApp.List.Controller.setActiveHeader(name);
+//});
+
+console.log('in header, app:', app);
+
+app.vent.on('header:start', function() {
+  console.log('in header:start', ListView);
+
+  var links = [
+    { name: 'Contacts', url: 'contacts', navigationTrigger: 'contacts:list' },
+    { name: 'About', url: 'about', navigationTrigger: 'about:show' }
+  ]; //ContactManager.request('header:entities');
+  var headers = new ListView({ collection: links });
+
+  headers.on('brand:clicked', function() {
+    app.trigger('contacts:list');
   });
 
-  Header.on("start", function(){
-    API.listHeader();
+  headers.on('childview:navigate', function(childView, model) {
+    var trigger = model.get('navigationTrigger');
+    app.trigger(trigger);
   });
+
+  app.regions.header.show(headers);
+
+  //API.listHeader();
 });

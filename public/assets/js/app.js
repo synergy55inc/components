@@ -14,6 +14,8 @@ app.getCurrentRoute = function() {
 };
 
 app.on('before:start', function() {
+  require('./apps/header/header_app');
+
   _.templateSettings = {
     interpolate: /\{\{=(.+?)\}\}/g,
     escape: /\{\{-(.+?)\}\}/g,
@@ -31,6 +33,8 @@ app.on('before:start', function() {
   });
 
   app.regions = new RegionContainer();
+
+  console.log('app.regions', app.regions);
 //  app.regions.dialog.onShow = function(view) {
 //    var self = this;
 //    var closeDialog = function() {
@@ -58,9 +62,12 @@ var StaticView = Marionette.ItemView.extend({
 });
 
 app.on('start', function() {
+  app.vent.trigger('header:start');
+
   var staticView = new StaticView();
   staticView.render();
   console.log('staticView', staticView);
+
 
   if (Backbone.history) {
     Backbone.history.start();

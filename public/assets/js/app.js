@@ -52,7 +52,16 @@ app.on('before:start', function() {
 //  };
 });
 
+var StaticView = Marionette.ItemView.extend({
+  el: '#main-region',
+  template: '#static-template'
+});
+
 app.on('start', function() {
+  var staticView = new StaticView();
+  staticView.render();
+  console.log('staticView', staticView);
+
   if (Backbone.history) {
     Backbone.history.start();
 

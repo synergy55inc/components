@@ -7,7 +7,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: path.join(__dirname, 'es6'), loader: 'babel-loader' }
+      { test: path.join(__dirname, 'public/assets/js/test'), loader: 'babel-loader' }
     ]
   }
 };

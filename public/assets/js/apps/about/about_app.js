@@ -24,7 +24,6 @@ app.on('about:show', function() {
 });
 
 app.on('about:start', function() {
-  console.log('about:start');
   var router = new AboutAppRouter({
     controller: API
   });

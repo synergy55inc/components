@@ -8,6 +8,7 @@ import Layout from './layout_view';
 import Panel from './panel_view';
 import ContactList from './list_view';
 import EditView from '../edit/edit_view';
+import NewContactView from '../new/new_view';
 import FilteredCollection from '../../../entities/filtered';
 
 require('../../../entities/contact');
@@ -23,8 +24,6 @@ export default {
     var contactsListPanel = new Panel();
 
     $.when(fetchingContacts).done(function(contacts) {
-      console.log('contact', contacts);
-
       var filteredContacts = FilteredCollection({
         collection: contacts,
         filterFunction: function(filterCriterion) {
@@ -60,33 +59,33 @@ export default {
         contactsListLayout.contactsRegion.show(contactsListView);
       });
 
-//      contactsListPanel.on('contact:new', function() {
-//        var newContact = new app.Entities.Contact();
-//
-//        var view = new ContactManager.ContactsApp.New.Contact({
-//          model: newContact
-//        });
-//
-//        view.on('form:submit', function(data) {
-//          var contactSaved = newContact.save(data, {
-//            success: function() {
-//              contacts.add(newContact);
-//              view.trigger('dialog:close');
-//              var newContactView = contactsListView.children.findByModel(newContact);
-//              // check whether the new contact view is displayed (it could be
-//              // invisible due to the current filter criterion)
-//              if (newContactView) {
-//                newContactView.flash('success');
-//              }
-//            }
-//          });
-//          if (!contactSaved) {
-//            view.triggerMethod('form:data:invalid', newContact.validationError);
-//          }
-//        });
-//
-//        app.regions.dialog.show(view);
-//      });
+      contactsListPanel.on('contact:new', function() {
+        var newContact = app.request('new:contact:entity');
+
+        var view = new NewContactView({
+          model: newContact
+        });
+
+        view.on('form:submit', function(data) {
+          var contactSaved = newContact.save(data, {
+            success: function() {
+              contacts.add(newContact);
+              view.trigger('dialog:close');
+              var newContactView = contactsListView.children.findByModel(newContact);
+              // check whether the new contact view is displayed (it could be
+              // invisible due to the current filter criterion)
+              if (newContactView) {
+                newContactView.flash('success');
+              }
+            }
+          });
+          if (!contactSaved) {
+            view.triggerMethod('form:data:invalid', newContact.validationError);
+          }
+        });
+
+        app.regions.dialog.show(view);
+      });
 
       contactsListView.on('childview:contact:show', function(childView, args) {
         app.trigger('contact:show', args.model.get('id'));

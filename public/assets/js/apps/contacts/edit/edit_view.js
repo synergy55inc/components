@@ -7,7 +7,6 @@ import FormView from '../common/form_view';
 export default FormView.extend({
   initialize: function() {
     this.title = 'Edit ' + this.model.get('fullName');
-    console.log('this', this);
   },
 
   onRender: function() {

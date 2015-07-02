@@ -1,9 +1,11 @@
-ContactManager.module("ContactsApp.New", function(New, ContactManager, Backbone, Marionette, $, _){
-  New.Contact = ContactManager.ContactsApp.Common.Views.Form.extend({
-    title: "New Contact",
+'use strict';
 
-    onRender: function(){
-      this.$(".js-submit").text("Create contact");
-    }
-  });
+import FormView from '../common/form_view';
+
+export default FormView.extend({
+  title: 'New Contact',
+
+  onRender: function(){
+    this.$('.js-submit').text('Create contact');
+  }
 });

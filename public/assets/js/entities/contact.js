@@ -83,8 +83,11 @@ var API = {
   }
 };
 
+app.reqres.setHandler('new:contact:entity', function() {
+  return new Contact();
+});
+
 app.reqres.setHandler('contact:entities', function() {
-  console.log('in contact:entities');
   return API.getContactEntities();
 });
 

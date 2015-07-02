@@ -1,11 +1,15 @@
 'use strict';
 import app from '../../../app';
 
+import $ from 'jquery';
+
 import LoadingView from '../../../common/loading_view';
 import Layout from './layout_view';
 import Panel from './panel_view';
 import ContactList from './list_view';
 import FilteredCollection from '../../../entities/filtered';
+
+require('../../../entities/contact');
 
 export default {
   listContacts: function(criterion) {
@@ -18,7 +22,9 @@ export default {
     var contactsListPanel = new Panel();
 
     $.when(fetchingContacts).done(function(contacts) {
-      var filteredContacts = new FilteredCollection({
+      console.log('contact', contacts);
+
+      var filteredContacts = FilteredCollection({
         collection: contacts,
         filterFunction: function(filterCriterion) {
           var criterion = filterCriterion.toLowerCase();

@@ -1,10 +1,29 @@
 {
-  "language": {
-    "javascript": {
-      "linting.prefer": [
-        "JSHint", "JSCS"
-      ],
-      "linting.usePreferredOnly": true
-    }
-  }
+    "language": {
+        "javascript": {
+            "linting.prefer": [
+                "JSHint",
+                "JSCS"
+            ],
+            "linting.usePreferredOnly": true
+        }
+    },
+    "fileFilters": [
+        {
+            "name": "Almost Everything",
+            "patterns": [
+                "node_modules",
+                "vendor",
+                ".css",
+                ".less",
+                ".html",
+                ".tpl",
+                ".git",
+                "log",
+                "/lib",
+                "/app/controllers",
+                ".rb"
+            ]
+        }
+    ]
 }

@@ -4,11 +4,12 @@ import _ from 'underscore';
 import Marionette from 'backbone.marionette';
 
 import app from '../app';
+import pick from '../vendor/backbone.picky';
 
 var Header = Backbone.Model.extend({
   initialize: function() {
-//    var selectable = new Backbone.Picky.Selectable(this);
-//    _.extend(this, selectable);
+    var selectable = new Backbone.Picky.Selectable(this);
+    _.extend(this, selectable);
   }
 });
 
@@ -16,8 +17,8 @@ var HeaderCollection = Backbone.Collection.extend({
   model: Header,
 
   initialize: function() {
-//    var singleSelect = new Backbone.Picky.SingleSelect(this);
-//    _.extend(this, singleSelect);
+    var singleSelect = new Backbone.Picky.SingleSelect(this);
+    _.extend(this, singleSelect);
   }
 });
 

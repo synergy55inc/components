@@ -1,5 +1,6 @@
 'use strict';
-import Backbone from 'backbone';
+
+import Marionette from 'backbone.marionette';
 
 export default Backbone.Model.extend({
   sync: function(method, model, options) {

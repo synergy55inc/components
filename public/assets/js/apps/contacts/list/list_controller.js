@@ -87,9 +87,9 @@ export default {
 //        app.regions.dialog.show(view);
 //      });
 
-//      contactsListView.on('childview:contact:show', function(childView, args) {
-//        app.trigger('contact:show', args.model.get('id'));
-//      });
+      contactsListView.on('childview:contact:show', function(childView, args) {
+        app.trigger('contact:show', args.model.get('id'));
+      });
 
 //      contactsListView.on('childview:contact:edit', function(childView, args) {
 //        var model = args.model;

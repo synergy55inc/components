@@ -19,5 +19,8 @@
   "browser": true,
   "nonstandard": true,
   "node": true,
-  "esnext": true
+  "esnext": true,
+  "predef": [
+    "Backbone"
+  ]
 }

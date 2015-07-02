@@ -1,6 +1,9 @@
 'use strict';
+
 import _ from 'underscore';
 import Marionette from 'backbone.marionette';
+
+import './vendor/jquery-ui-1.10.3';
 
 var app = new Marionette.Application();
 
@@ -36,25 +39,25 @@ app.on('before:start', function() {
   app.regions = new RegionContainer();
 
   console.log('app.regions', app.regions);
-//  app.regions.dialog.onShow = function(view) {
-//    var self = this;
-//    var closeDialog = function() {
-//      self.stopListening();
-//      self.empty();
-//      self.$el.dialog('destroy');
-//    };
-//
-//    this.listenTo(view, 'dialog:close', closeDialog);
-//
-//    this.$el.dialog({
-//      modal: true,
-//      title: view.title,
-//      width: 'auto',
-//      close: function(e, ui) {
-//        closeDialog();
-//      }
-//    });
-//  };
+  app.regions.dialog.onShow = function(view) {
+    var self = this;
+    var closeDialog = function() {
+      self.stopListening();
+      self.empty();
+      self.$el.dialog('destroy');
+    };
+
+    this.listenTo(view, 'dialog:close', closeDialog);
+
+    this.$el.dialog({
+      modal: true,
+      title: view.title,
+      width: 'auto',
+      close: function(e, ui) {
+        closeDialog();
+      }
+    });
+  };
 });
 
 var StaticView = Marionette.ItemView.extend({

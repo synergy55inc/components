@@ -10,11 +10,6 @@ export default Marionette.CompositeView.extend({
   childView: ItemView,
   childViewContainer: 'ul',
 
-  initialize: function() {
-    console.log('init', this);
-    debugger;
-  },
-
   events: {
     'click a.brand': 'brandClicked'
   },

@@ -54,10 +54,10 @@ export default {
         app.trigger('contacts:filter', filterCriterion);
       });
 
-//      contactsListLayout.on('show', function() {
-//        contactsListLayout.panelRegion.show(contactsListPanel);
-//        contactsListLayout.contactsRegion.show(contactsListView);
-//      });
+      contactsListLayout.on('show', function() {
+        contactsListLayout.panelRegion.show(contactsListPanel);
+        contactsListLayout.contactsRegion.show(contactsListView);
+      });
 
 //      contactsListPanel.on('contact:new', function() {
 //        var newContact = new app.Entities.Contact();

@@ -9,7 +9,7 @@ import app from '../app';
 import BaseModel from './model';
 
 var Contact = BaseModel.extend({
-  urlRoot: 'contacts',
+  urlRoot: 'contacts_legacy',
 
   defaults: {
     firstName: '',
@@ -32,11 +32,26 @@ var Contact = BaseModel.extend({
     if (!_.isEmpty(errors)) {
       return errors;
     }
+  },
+
+  parse: function(response) {
+    var data = response;
+    if (response && response.contact) {
+      data = response.contact;
+    }
+    data.fullName = data.firstName + ' ' + data.lastName;
+    //      data.avatarUrl = data['avatar-url'];
+    return data;
+  },
+
+  sync: function(method, model, options) {
+    console.log('Contact sync function called.');
+    return BaseModel.prototype.sync.call(this, method, model, options);
   }
 });
 
 var ContactCollection = Backbone.Collection.extend({
-  url: 'contacts',
+  url: 'contacts_legacy',
   model: Contact,
   comparator: 'firstName'
 });
@@ -69,6 +84,7 @@ var API = {
 };
 
 app.reqres.setHandler('contact:entities', function() {
+  console.log('in contact:entities');
   return API.getContactEntities();
 });
 

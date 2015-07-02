@@ -8,7 +8,7 @@ export default function(options) {
   filtered.add(original.models);
   filtered.filterFunction = options.filterFunction;
 
-  var applyFilter = function(filterCriterion, filterStrategy, collection) {
+  var applyFilter = function(filterCriterion, filterStrategy, collection=original) {
     //var collection = collection || original;
     var criterion;
     if (filterStrategy == 'filter') {

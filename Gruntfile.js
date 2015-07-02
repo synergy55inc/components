@@ -30,12 +30,22 @@ module.exports = function(grunt) {
           'public/assets/js/jst/templates.js': ["public/assets/js/**/*.html"]
         }
       }
+    },
+    handlebars: {
+      compile: {
+        files: {
+          'public/assets/js/jst/handlebars.js':["public/assets/js/**/*.hbs"]
+
+        }
+
+     }
     }
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jst');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default',['jshint']);
+  grunt.registerTask('default',['handlebars']);
 };

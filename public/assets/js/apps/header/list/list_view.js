@@ -1,6 +1,6 @@
 ContactManager.module("HeaderApp.List", function(List, ContactManager, Backbone, Marionette, $, _){
   List.Header = Marionette.ItemView.extend({
-    template: window["JST"]["public/assets/js/templates/headerlink.html"],
+    template: window["JST"]["public/assets/js/templates/headerlink.hbs"],
     tagName: "li",
 
     events: {
@@ -21,7 +21,7 @@ ContactManager.module("HeaderApp.List", function(List, ContactManager, Backbone,
   });
 
   List.Headers = Marionette.CompositeView.extend({
-    template: window["JST"]["public/assets/js/templates/header.html"],
+    template: window["JST"]["public/assets/js/templates/header.hbs"],
     className: "navbar navbar-inverse navbar-fixed-top",
     childView: List.Header,
     childViewContainer: "ul",

@@ -15,6 +15,7 @@ app.getCurrentRoute = function() {
 
 app.on('before:start', function() {
   require('./apps/header/header_app');
+  require('./apps/contacts/contacts_app');
 
   _.templateSettings = {
     interpolate: /\{\{=(.+?)\}\}/g,
@@ -63,6 +64,7 @@ var StaticView = Marionette.ItemView.extend({
 
 app.on('start', function() {
   app.vent.trigger('header:start');
+  app.vent.trigger('contact:start');
 
   var staticView = new StaticView();
   staticView.render();

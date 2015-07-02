@@ -6,10 +6,6 @@ export default Marionette.ItemView.extend({
   tagName: 'tr',
   template: window.JST['public/assets/js/templates/contactlistitem.html'],
 
-  lisa: function() {
-    console.log('something was clicked');
-  },
-
   triggers: {
     'click td a.js-show': 'contact:show',
     'click td a.js-edit': 'contact:edit',
@@ -17,7 +13,6 @@ export default Marionette.ItemView.extend({
   },
 
   events: {
-//    'click td a.js-show': 'lisa',
     'click': 'highlightName'
   },
 

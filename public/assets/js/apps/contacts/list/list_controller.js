@@ -7,6 +7,7 @@ import LoadingView from '../../../common/loading_view';
 import Layout from './layout_view';
 import Panel from './panel_view';
 import ContactList from './list_view';
+import EditView from '../edit/edit_view';
 import FilteredCollection from '../../../entities/filtered';
 
 require('../../../entities/contact');
@@ -91,28 +92,28 @@ export default {
         app.trigger('contact:show', args.model.get('id'));
       });
 
-//      contactsListView.on('childview:contact:edit', function(childView, args) {
-//        var model = args.model;
-//        var view = new ContactManager.ContactsApp.Edit.Contact({
-//          model: model
-//        });
-//
-//        view.on('form:submit', function(data) {
-//          if (model.save(data)) {
-//            childView.render();
-//            view.trigger('dialog:close');
-//            childView.flash('success');
-//          } else {
-//            view.triggerMethod('form:data:invalid', model.validationError);
-//          }
-//        });
-//
-//        app.regions.dialog.show(view);
-//      });
+      contactsListView.on('childview:contact:edit', function(childView, args) {
+        var model = args.model;
+        var view = new EditView({
+          model: model
+        });
 
-//      contactsListView.on('childview:contact:delete', function(childView, args) {
-//        args.model.destroy();
-//      });
+        view.on('form:submit', function(data) {
+          if (model.save(data)) {
+            childView.render();
+            view.trigger('dialog:close');
+            childView.flash('success');
+          } else {
+            view.triggerMethod('form:data:invalid', model.validationError);
+          }
+        });
+
+        app.regions.dialog.show(view);
+      });
+
+      contactsListView.on('childview:contact:delete', function(childView, args) {
+        args.model.destroy();
+      });
 
       app.regions.main.show(contactsListLayout);
     });

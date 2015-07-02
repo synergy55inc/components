@@ -16,9 +16,6 @@
   "unused": false,
   "strict": true,
   "devel": true,
-  "predef": [
-    "define", "$", "_", "Backbone", "Marionette", "ContactManager"
-  ],
   "browser": true,
   "nonstandard": true,
   "node": true,

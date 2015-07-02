@@ -1,17 +1,21 @@
-ContactManager.module("ContactsApp.Edit", function(Edit, ContactManager, Backbone, Marionette, $, _){
-  Edit.Contact = ContactManager.ContactsApp.Common.Views.Form.extend({
-    initialize: function(){
-      this.title = "Edit " + this.model.get("fullName");
-      console.log("this", this);
-    },
+'use strict';
+import $ from 'jquery';
+import Marionette from 'backbone.marionette';
 
-    onRender: function(){
-      if(this.options.generateTitle){
-        var $title = $("<h1>", { text: this.title });
-        this.$el.prepend($title);
-      }
+import FormView from '../common/form_view';
 
-      this.$(".js-submit").text("Update contact");
+export default FormView.extend({
+  initialize: function() {
+    this.title = 'Edit ' + this.model.get('fullName');
+    console.log('this', this);
+  },
+
+  onRender: function() {
+    if (this.options.generateTitle) {
+      var $title = $('<h1>', { text: this.title });
+      this.$el.prepend($title);
     }
-  });
+
+    this.$('.js-submit').text('Update contact');
+  }
 });

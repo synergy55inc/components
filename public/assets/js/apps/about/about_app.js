@@ -1,25 +1,31 @@
-ContactManager.module("AboutApp", function(AboutApp, ContactManager, Backbone, Marionette, $, _){
-  AboutApp.Router = Marionette.AppRouter.extend({
-    appRoutes: {
-      "about" : "showAbout"
-    }
-  });
+'use strict';
 
-  var API = {
-    showAbout: function(){
-      AboutApp.Show.Controller.showAbout();
-      ContactManager.execute("set:active:header", "about");
-    }
-  };
+import Marionette from 'backbone.marionette';
+import app from '../../app';
 
-  ContactManager.on("about:show", function(){
-    ContactManager.navigate("about");
-    API.showAbout();
-  });
+import ShowController from './show/show_controller';
 
-  AboutApp.on("start", function(){
-    new AboutApp.Router({
-      controller: API
-    });
+var AboutAppRouter = Marionette.AppRouter.extend({
+  appRoutes: {
+    'about' : 'showAbout'
+  }
+});
+
+var API = {
+  showAbout: function() {
+    ShowController.showAbout();
+    app.execute('set:active:header', 'about');
+  }
+};
+
+app.on('about:show', function() {
+  app.navigate('about');
+  API.showAbout();
+});
+
+app.on('about:start', function() {
+  console.log('about:start');
+  var router = new AboutAppRouter({
+    controller: API
   });
 });

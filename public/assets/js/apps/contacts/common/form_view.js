@@ -4,6 +4,8 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Marionette from 'backbone.marionette';
 
+import '../../../vendor/backbone.picky';
+
 export default Marionette.ItemView.extend({
   template: window.JST['public/assets/js/templates/contactform.html'] ,
 
@@ -14,8 +16,8 @@ export default Marionette.ItemView.extend({
   submitClicked: function(e) {
     e.preventDefault();
     console.log('submitting form');
-//    var data = Backbone.Syphon.serialize(this);
-//    this.trigger('form:submit', data);
+    var data = Backbone.Syphon.serialize(this);
+    this.trigger('form:submit', data);
   },
 
   onFormDataInvalid: function(errors) {

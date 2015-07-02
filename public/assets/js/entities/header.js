@@ -11,7 +11,7 @@ var Header = Backbone.Model.extend({
 //    _.extend(this, selectable);
   }
 });
-console.log('Header', Header);
+
 var HeaderCollection = Backbone.Collection.extend({
   model: Header,
 

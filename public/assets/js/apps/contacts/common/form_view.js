@@ -5,6 +5,7 @@ import _ from 'underscore';
 import Marionette from 'backbone.marionette';
 
 import '../../../vendor/backbone.picky';
+import '../../../vendor/backbone.syphon';
 
 export default Marionette.ItemView.extend({
   template: window.JST['public/assets/js/templates/contactform.html'] ,

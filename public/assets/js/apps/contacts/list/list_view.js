@@ -7,7 +7,7 @@ import ContactView from './contact_view';
 export default Marionette.CompositeView.extend({
   tagName: 'table',
   className: 'table table-hover',
-  template: window.JST['public/assets/js/templates/contactlist.html'],
+  template: app.templates['contactlist.html'],
   emptyView: NoContactsView,
   childView: ContactView,
   childViewContainer: 'tbody',

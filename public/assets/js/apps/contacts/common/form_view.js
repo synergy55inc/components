@@ -8,7 +8,7 @@ import '../../../vendor/backbone.picky';
 import '../../../vendor/backbone.syphon';
 
 export default Marionette.ItemView.extend({
-  template: window.JST['public/assets/js/templates/contactform.html'] ,
+  template: app.templates['contactform.html'] ,
 
   events: {
     'click button.js-submit': 'submitClicked'

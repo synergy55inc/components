@@ -3,7 +3,7 @@ import Marionette from 'backbone.marionette';
 import EmptyView from './empty_view';
 
 export default Marionette.ItemView.extend({
-  template: window.JST['public/assets/js/templates/conctactview.html'],
+  template: app.templates['conctactview.html'],
 
   events: {
     'click a.js-edit': 'editClicked'

@@ -20,6 +20,12 @@ module.exports = function(grunt) {
     jst: {
       compile: {
         options: {
+          namespace: 'app.templates',
+          processName: function(filename) {
+            // simplify the template names
+            filename = filename.replace('public/assets/js/templates/', '');
+            return filename.replace('.html', '');
+          },
           templateSettings: {
             interpolate: /\{\{=(.+?)\}\}/g,
             escape: /\{\{-(.+?)\}\}/g,
@@ -27,7 +33,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'public/assets/js/jst/templates.js': ["public/assets/js/**/*.html"]
+          'public/assets/js/jst/templates.js': ['public/assets/js/**/*.html']
         }
       }
     }

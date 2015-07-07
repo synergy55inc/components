@@ -3,5 +3,5 @@
 import Marionette from 'backbone.marionette';
 
 export default Marionette.ItemView.extend({
-  template: window.JST['public/assets/js/templates/about.html']
+  template: app.templates['about.html']
 });

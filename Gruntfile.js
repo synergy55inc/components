@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     app: {
-      tmp: 'tmp'
+      tmp: 'tmp',
+      src: 'public/assets/js'
     },
 
     jshint: {
@@ -13,10 +14,10 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       },
       all: [
-        'public/assets/js/**/*.js',
-        '!public/assets/js/apps/config/*.js',
-        '!public/assets/js/vendor/*.js',
-        '!public/assets/js/apps/config/storage/localstorage.js',
+        '<%= app.src %>/**/*.js',
+        '!<%= app.src %>/apps/config/*.js',
+        '!<%= app.src %>/vendor/*.js',
+        '!<%= app.src %>/apps/config/storage/localstorage.js',
         'Gruntfile.js'
       ]
     },
@@ -35,18 +36,16 @@ module.exports = function(grunt) {
             //return basename.replace(/[-\.]([a-z])/g, function (g) { return g[1].toUpperCase(); });
           },
           templateSettings: {
-//            variable: 'data',
             interpolate: /\{\{=(.+?)\}\}/g,
             escape: /\{\{-(.+?)\}\}/g,
             evaluate: /\{\{(.+?)\}\}/g
           }
         },
         files: {
-          '<%= app.tmp %>/templates.js': ['public/assets/js/**/*.html']
+          '<%= app.tmp %>/templates.js': ['<%= app.src %>/**/*.html']
         }
       }
     }
-
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');

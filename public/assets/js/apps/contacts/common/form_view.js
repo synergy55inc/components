@@ -4,7 +4,6 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Marionette from 'marionette';
 
-import 'vendor/backbone.picky';
 import 'vendor/backbone.syphon';
 
 export default Marionette.ItemView.extend({

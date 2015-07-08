@@ -1,6 +1,7 @@
 'use strict';
 
 import Marionette from 'marionette';
+import _ from 'underscore';
 
 export default Backbone.Model.extend({
   sync: function(method, model, options) {

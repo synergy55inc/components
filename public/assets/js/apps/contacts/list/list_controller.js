@@ -24,7 +24,7 @@ export default {
     var contactsListPanel = new Panel();
 
     $.when(fetchingContacts).done(function(contacts) {
-      var filteredContacts = FilteredCollection({
+      var filteredContacts = new FilteredCollection({
         collection: contacts,
         filterFunction: function(filterCriterion) {
           var criterion = filterCriterion.toLowerCase();

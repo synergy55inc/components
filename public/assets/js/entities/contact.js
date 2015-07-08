@@ -4,7 +4,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import Marionette from 'marionette';
 
-import app from '../app';
+import app from 'app';
 
 import BaseModel from './model';
 

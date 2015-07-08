@@ -1,6 +1,6 @@
 'use strict';
 
-import app from '../../../app';
+import app from 'app';
 import ShowMessage from './show_view';
 
 export default {

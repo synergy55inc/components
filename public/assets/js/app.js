@@ -3,7 +3,7 @@
 import _ from 'underscore';
 import Marionette from 'marionette';
 
-import './vendor/jquery-ui-1.10.3';
+import 'vendor/jquery-ui-1.10.3';
 
 var app = new Marionette.Application();
 
@@ -24,6 +24,7 @@ app.on('before:start', function() {
   _.templateSettings = {
     interpolate: /\{\{=(.+?)\}\}/g,
     escape: /\{\{-(.+?)\}\}/g,
+
     evaluate: /\{\{(.+?)\}\}/g
   };
 

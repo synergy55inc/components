@@ -1,7 +1,7 @@
 'use strict';
 
 import Marionette from 'marionette';
-import app from '../../app';
+import app from 'app';
 
 import ShowController from './show/show_controller';
 

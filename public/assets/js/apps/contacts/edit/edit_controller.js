@@ -3,8 +3,8 @@
 import $ from 'jquery';
 import Marionette from 'marionette';
 
-import app from '../../../app';
-import LoadingView  from '../../../common/loading_view';
+import app from 'app';
+import LoadingView  from 'common/loading_view';
 import EditView from './edit_view';
 import EmptyView from '../show/empty_view';
 

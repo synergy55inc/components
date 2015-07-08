@@ -3,8 +3,8 @@
 import _ from 'underscore';
 import Marionette from 'marionette';
 
-import app from '../app';
-import pick from '../vendor/backbone.picky';
+import app from 'app';
+import pick from 'vendor/backbone.picky';
 
 var Header = Backbone.Model.extend({
   initialize: function() {

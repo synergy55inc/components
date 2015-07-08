@@ -19,7 +19,7 @@ module.exports = {
     alias: {
       marionette: 'backbone.marionette'
     },
-    modulesDirectories: ['node_modules', 'tmp', 'public/src']
+    modulesDirectories: ['node_modules', 'tmp', 'public/assets/js']
   },
 
   plugins: [
@@ -27,7 +27,6 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
       _: 'underscore'
-//      templates: './jst/templates'
     })
   ]
 };

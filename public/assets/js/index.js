@@ -18,5 +18,3 @@ import './config/render-shim';
 // Load & start our app
 var app = require('./app');
 app.start();
-
-console.log('after start', app);

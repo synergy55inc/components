@@ -1,6 +1,6 @@
 'use strict';
 
-import app from '../../../app';
+import app from 'app';
 import ListHeader from './list_view';
 
 export default {

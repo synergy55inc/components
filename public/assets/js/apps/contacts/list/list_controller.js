@@ -1,17 +1,17 @@
 'use strict';
-import app from '../../../app';
+import app from 'app';
 
 import $ from 'jquery';
 
-import LoadingView from '../../../common/loading_view';
+import LoadingView from 'common/loading_view';
 import Layout from './layout_view';
 import Panel from './panel_view';
 import ContactList from './list_view';
 import EditView from '../edit/edit_view';
 import NewContactView from '../new/new_view';
-import FilteredCollection from '../../../entities/filtered';
+import FilteredCollection from 'entities/filtered';
 
-require('../../../entities/contact');
+require('entities/contact');
 
 export default {
   listContacts: function(criterion) {

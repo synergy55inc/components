@@ -1,8 +1,8 @@
 'use strict';
-import app from '../../app';
+import app from 'app';
 import ListController from './list/list_controller';
 
-require('../../entities/header');
+require('entities/header');
 
 var API = {
   listHeader: function() {

@@ -2,9 +2,9 @@
 
 import $ from 'jquery';
 import Marionette from 'marionette';
-import app from '../../../app';
+import app from 'app';
 
-import LoadingView  from '../../../common/loading_view';
+import LoadingView  from 'common/loading_view';
 import ShowContact  from './show_view';
 import EmptyView    from './empty_view';
 

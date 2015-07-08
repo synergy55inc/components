@@ -1,7 +1,6 @@
-this["app"] = this["app"] || {};
-this["app"]["templates"] = this["app"]["templates"] || {};
+this["templates"] = this["templates"] || {};
 
-this["app"]["templates"]["about"] = function(obj) {
+this["templates"]["about"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -11,7 +10,7 @@ __p += '<h1>About this application</h1>\r\n<p>This application was designed to a
 return __p
 };
 
-this["app"]["templates"]["conctactview"] = function(obj) {
+this["templates"]["conctactview"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -29,7 +28,7 @@ __e( phoneNumber ) +
 return __p
 };
 
-this["app"]["templates"]["contactform"] = function(obj) {
+this["templates"]["contactform"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -45,7 +44,7 @@ __e( phoneNumber ) +
 return __p
 };
 
-this["app"]["templates"]["contactlist"] = function(obj) {
+this["templates"]["contactlist"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -55,7 +54,7 @@ __p += '<thead>\r\n  <tr>\r\n    <th>First Name</th>\r\n    <th>Last Name</th>\r
 return __p
 };
 
-this["app"]["templates"]["contactlistitem"] = function(obj) {
+this["templates"]["contactlistitem"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -73,7 +72,7 @@ __e( id ) +
 return __p
 };
 
-this["app"]["templates"]["contactlistlayout"] = function(obj) {
+this["templates"]["contactlistlayout"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -83,7 +82,7 @@ __p += '<div id="panel-region"></div>\r\n<div id="contacts-region"></div>\r\n';
 return __p
 };
 
-this["app"]["templates"]["contactlistpanel"] = function(obj) {
+this["templates"]["contactlistpanel"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -93,7 +92,7 @@ __p += '<button class="btn btn-primary js-new">New contact</button>\r\n<form id=
 return __p
 };
 
-this["app"]["templates"]["header"] = function(obj) {
+this["templates"]["header"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -103,7 +102,7 @@ __p += '<div class="navbar-inner">\r\n  <div class="container">\r\n    <a class=
 return __p
 };
 
-this["app"]["templates"]["headerlink"] = function(obj) {
+this["templates"]["headerlink"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -117,7 +116,7 @@ __e( name ) +
 return __p
 };
 
-this["app"]["templates"]["loadingview"] = function(obj) {
+this["templates"]["loadingview"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -131,7 +130,7 @@ __e( message ) +
 return __p
 };
 
-this["app"]["templates"]["missing"] = function(obj) {
+this["templates"]["missing"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -141,7 +140,7 @@ __p += '<div class="alert alert-error">This contact doesn\'t exist !</div>\r\n';
 return __p
 };
 
-this["app"]["templates"]["nocontacts"] = function(obj) {
+this["templates"]["nocontacts"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {

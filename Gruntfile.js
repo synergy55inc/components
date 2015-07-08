@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     jst: {
       compile: {
         options: {
-          namespace: 'app.templates',
+          namespace: 'templates',
           processName: function(filename) {
             // simplify the template names
             filename = filename.replace('public/assets/js/templates/', '');

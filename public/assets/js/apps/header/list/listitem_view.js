@@ -2,7 +2,7 @@
 import Marionette from 'backbone.marionette';
 
 export default Marionette.ItemView.extend({
-  template: app.templates['headerlink'],
+  template: templates['headerlink'],
   tagName: 'li',
 
   events: { 'click a': 'navigate' },

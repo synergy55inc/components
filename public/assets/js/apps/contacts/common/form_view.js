@@ -16,7 +16,6 @@ export default Marionette.ItemView.extend({
 
   submitClicked: function(e) {
     e.preventDefault();
-    console.log('submitting form');
     var data = Backbone.Syphon.serialize(this);
     this.trigger('form:submit', data);
   },

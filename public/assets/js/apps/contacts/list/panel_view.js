@@ -3,7 +3,7 @@
 import Marionette from 'backbone.marionette';
 
 export default Marionette.ItemView.extend({
-  template: app.templates['contactlistpanel.html'],
+  template: app.templates['contactlistpanel'],
 
   triggers: {
     'click button.js-new': 'contact:new'

@@ -27,6 +27,7 @@ module.exports = function(grunt) {
             return filename.replace('.html', '');
           },
           templateSettings: {
+            variable: 'data',
             interpolate: /\{\{=(.+?)\}\}/g,
             escape: /\{\{-(.+?)\}\}/g,
             evaluate: /\{\{(.+?)\}\}/g
@@ -43,5 +44,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jst');
 
-  grunt.registerTask('default',['jshint']);
+  grunt.registerTask('default', ['jshint']);
 };

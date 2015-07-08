@@ -7,7 +7,7 @@ import ContactView from './contact_view';
 export default Marionette.CompositeView.extend({
   tagName: 'table',
   className: 'table table-hover',
-  template: templates['contactlist'],
+  template: templates['contactlist.tpl'],
   emptyView: NoContactsView,
   childView: ContactView,
   childViewContainer: 'tbody',

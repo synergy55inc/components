@@ -1,12 +1,12 @@
 this["templates"] = this["templates"] || {};
 
-this["templates"]["about"] = function(data) {
+this["templates"]["about.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<h1>About this application</h1>\r\n<p>This application was designed to accompany you during your learning.</p>\r\n<p>Hopefully, it has served you well !</p>\r\n';
 return __p
 };
 
-this["templates"]["conctactview"] = function(data) {
+this["templates"]["conctactview.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<h1>' +
 __e( data.fullName ) +
@@ -20,7 +20,7 @@ __e( data.phoneNumber ) +
 return __p
 };
 
-this["templates"]["contactform"] = function(data) {
+this["templates"]["contactform.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<form>\r\n  <div class="control-group">\r\n    <label for="contact-firstName" class="control-label">First name:</label>\r\n    <input id="contact-firstName" name="firstName" type="text" value="' +
 __e( data.firstName ) +
@@ -32,13 +32,13 @@ __e( data.phoneNumber ) +
 return __p
 };
 
-this["templates"]["contactlist"] = function(data) {
+this["templates"]["contactlist.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<thead>\r\n  <tr>\r\n    <th>First Name</th>\r\n    <th>Last Name</th>\r\n    <th></th>\r\n  </tr>\r\n</thead>\r\n<tbody>\r\n</tbody>\r\n';
 return __p
 };
 
-this["templates"]["contactlistitem"] = function(data) {
+this["templates"]["contactlistitem.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<td>' +
 __e( data.firstName ) +
@@ -52,25 +52,25 @@ __e( data.id ) +
 return __p
 };
 
-this["templates"]["contactlistlayout"] = function(data) {
+this["templates"]["contactlistlayout.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<div id="panel-region"></div>\r\n<div id="contacts-region"></div>\r\n';
 return __p
 };
 
-this["templates"]["contactlistpanel"] = function(data) {
+this["templates"]["contactlistpanel.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<button class="btn btn-primary js-new">New contact</button>\r\n<form id="filter-form" class="form-search form-inline pull-right">\r\n  <div class="input-append">\r\n    <input type="text" class="span2 search-query js-filter-criterion">\r\n    <button type="submit" class="btn">Filter contacts</button>\r\n  </div>\r\n</form>\r\n';
 return __p
 };
 
-this["templates"]["header"] = function(data) {
+this["templates"]["header.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<div class="navbar-inner">\r\n  <div class="container">\r\n    <a class="brand" href="#contacts">Contact manager</a>\r\n    <div class="nav-collapse collapse">\r\n      <ul class="nav"></ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n';
 return __p
 };
 
-this["templates"]["headerlink"] = function(data) {
+this["templates"]["headerlink.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '      <a href="#' +
 __e( data.url ) +
@@ -80,7 +80,7 @@ __e( data.name ) +
 return __p
 };
 
-this["templates"]["loadingview"] = function(data) {
+this["templates"]["loadingview.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<h1>' +
 __e( data.title ) +
@@ -90,13 +90,13 @@ __e( data.message ) +
 return __p
 };
 
-this["templates"]["missing"] = function(data) {
+this["templates"]["missing.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<div class="alert alert-error">This contact doesn\'t exist !</div>\r\n';
 return __p
 };
 
-this["templates"]["nocontacts"] = function(data) {
+this["templates"]["nocontacts.tpl"] = function(data) {
 var __t, __p = '', __e = _.escape;
 __p += '<td colspan="3">No contacts to display.</td>\r\n';
 return __p

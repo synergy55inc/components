@@ -24,7 +24,7 @@ module.exports = function(grunt) {
           processName: function(filename) {
             // simplify the template names
             filename = filename.replace('public/assets/js/templates/', '');
-            return filename.replace('.html', '');
+            return filename.replace('.html', '.tpl');
           },
           templateSettings: {
             variable: 'data',

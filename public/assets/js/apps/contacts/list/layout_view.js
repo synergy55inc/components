@@ -2,7 +2,7 @@
 import Marionette from 'backbone.marionette';
 
 export default Marionette.LayoutView.extend({
-  template: templates['contactlistlayout'],
+  template: templates['contactlistlayout.tpl'],
 
   regions: {
     panelRegion: '#panel-region',

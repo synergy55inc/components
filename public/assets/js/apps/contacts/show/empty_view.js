@@ -2,5 +2,5 @@
 import Marionette from 'backbone.marionette';
 
 export default Marionette.ItemView.extend({
-  template: templates['missing.tpl']
+  template: 'missing'
 });

@@ -3,7 +3,7 @@
 //
 
 // Load shims.
-//import 'shims/radio-shim';
+import './config/render-shim';
 
 // Load our Handlebars helpers (someday)
 // import '../helpers/hbs-helpers';

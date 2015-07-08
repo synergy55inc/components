@@ -39,7 +39,6 @@ app.on('before:start', function() {
 
   app.regions = new RegionContainer();
 
-  console.log('app.regions', app.regions);
   app.regions.dialog.onShow = function(view) {
     var self = this;
     var closeDialog = function() {
@@ -61,18 +60,10 @@ app.on('before:start', function() {
   };
 });
 
-var StaticView = Marionette.ItemView.extend({
-  el: '#main-region',
-  template: '#static-template'
-});
-
 app.on('start', function() {
   app.vent.trigger('header:start');
   app.vent.trigger('contact:start');
   app.vent.trigger('app:start');
-
-  var staticView = new StaticView();
-  staticView.render();
 
   if (Backbone.history) {
     Backbone.history.start();

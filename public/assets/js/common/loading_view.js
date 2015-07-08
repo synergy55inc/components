@@ -7,7 +7,7 @@ import Marionette from 'backbone.marionette';
 //require('../vendor/spin.jquery');
 
 export default Marionette.ItemView.extend({
-  template: templates['loadingview.tpl'],
+  template: 'loadingview',
 
   title: 'Loading Data',
   message: 'Please wait, data is loading.',

@@ -4,7 +4,7 @@ import Marionette from 'backbone.marionette';
 
 export default Marionette.ItemView.extend({
   tagName: 'tr',
-  template: templates['contactlistitem.tpl'],
+  template: 'contactlistitem',
 
   triggers: {
     'click td a.js-show': 'contact:show',

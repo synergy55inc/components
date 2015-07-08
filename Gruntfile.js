@@ -4,6 +4,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    app: {
+      tmp: 'tmp'
+    },
+
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -20,11 +24,15 @@ module.exports = function(grunt) {
     jst: {
       compile: {
         options: {
-          namespace: 'templates',
+          prettify: true,
           processName: function(filename) {
             // simplify the template names
             filename = filename.replace('public/assets/js/templates/', '');
-            return filename.replace('.html', '.tpl');
+            return filename.replace('.html', '');
+
+            // Use this in ES1?
+            //var basename = path.basename( filename, path.extname(filename) );
+            //return basename.replace(/[-\.]([a-z])/g, function (g) { return g[1].toUpperCase(); });
           },
           templateSettings: {
             variable: 'data',
@@ -34,7 +42,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'public/assets/js/jst/templates.js': ['public/assets/js/**/*.html']
+          '<%= app.tmp %>/templates.js': ['public/assets/js/**/*.html']
         }
       }
     }

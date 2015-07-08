@@ -30,6 +30,13 @@
             "patterns": [
                 "node_modules"
             ]
+        },
+        {
+            "name": "",
+            "patterns": [
+                "*.js",
+                "node_modules"
+            ]
         }
     ]
 }

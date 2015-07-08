@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             //return basename.replace(/[-\.]([a-z])/g, function (g) { return g[1].toUpperCase(); });
           },
           templateSettings: {
-            variable: 'data',
+//            variable: 'data',
             interpolate: /\{\{=(.+?)\}\}/g,
             escape: /\{\{-(.+?)\}\}/g,
             evaluate: /\{\{(.+?)\}\}/g

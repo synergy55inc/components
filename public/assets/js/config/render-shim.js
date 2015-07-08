@@ -10,8 +10,6 @@
 import * as Marionette from 'backbone.marionette';
 import * as templates from 'templates';
 
-console.log('templates:', templates);
-
 Marionette.Renderer.render = function(template, data) {
   var templateFunc;
   if (!template) {

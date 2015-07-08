@@ -1,7 +1,7 @@
 'use strict';
 
 import _ from 'underscore';
-import Marionette from 'backbone.marionette';
+import Marionette from 'marionette';
 
 import './vendor/jquery-ui-1.10.3';
 

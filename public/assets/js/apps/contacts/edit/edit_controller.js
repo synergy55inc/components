@@ -1,7 +1,7 @@
 'use strict';
 
 import $ from 'jquery';
-import Marionette from 'backbone.marionette';
+import Marionette from 'marionette';
 
 import app from '../../../app';
 import LoadingView  from '../../../common/loading_view';

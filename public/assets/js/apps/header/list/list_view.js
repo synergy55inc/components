@@ -1,5 +1,5 @@
 'use strict';
-import Marionette from 'backbone.marionette';
+import Marionette from 'marionette';
 import ItemView   from './listitem_view';
 
 export default Marionette.CompositeView.extend({

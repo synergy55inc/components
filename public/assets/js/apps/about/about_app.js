@@ -1,6 +1,6 @@
 'use strict';
 
-import Marionette from 'backbone.marionette';
+import Marionette from 'marionette';
 import app from '../../app';
 
 import ShowController from './show/show_controller';

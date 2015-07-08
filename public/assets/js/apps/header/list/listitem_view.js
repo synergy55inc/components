@@ -1,5 +1,5 @@
 'use strict';
-import Marionette from 'backbone.marionette';
+import Marionette from 'marionette';
 
 export default Marionette.ItemView.extend({
   template: 'headerlink',

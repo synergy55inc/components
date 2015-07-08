@@ -16,6 +16,9 @@ module.exports = {
   },
 
   resolve: {
+    alias: {
+      marionette: 'backbone.marionette'
+    },
     modulesDirectories: ['node_modules', 'tmp', 'public/src']
   },
 

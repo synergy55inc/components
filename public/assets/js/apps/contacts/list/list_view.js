@@ -1,6 +1,6 @@
 'use strict';
 
-import Marionette from 'backbone.marionette';
+import Marionette from 'marionette';
 import NoContactsView from './empty_view';
 import ContactView from './contact_view';
 

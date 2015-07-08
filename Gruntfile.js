@@ -27,6 +27,7 @@ module.exports = function(grunt) {
             return filename.replace('.html', '');
           },
           templateSettings: {
+            variable: 'data',
             interpolate: /\{\{=(.+?)\}\}/g,
             escape: /\{\{-(.+?)\}\}/g,
             evaluate: /\{\{(.+?)\}\}/g

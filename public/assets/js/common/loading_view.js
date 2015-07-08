@@ -2,6 +2,7 @@
 
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
+import templates  from '../jst/templates';
 
 //import spin from '../vendor/spin';
 //require('../vendor/spin.jquery');

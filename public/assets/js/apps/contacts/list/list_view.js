@@ -3,6 +3,7 @@
 import Marionette from 'backbone.marionette';
 import NoContactsView from './empty_view';
 import ContactView from './contact_view';
+import templates  from '../../../jst/templates';
 
 export default Marionette.CompositeView.extend({
   tagName: 'table',

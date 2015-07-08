@@ -3,6 +3,7 @@
 import $ from 'jquery';
 import _ from 'underscore';
 import Marionette from 'backbone.marionette';
+import templates  from '../../../jst/templates';
 
 import '../../../vendor/backbone.picky';
 import '../../../vendor/backbone.syphon';

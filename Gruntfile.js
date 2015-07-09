@@ -1,12 +1,16 @@
 module.exports = function(grunt) {
   'use strict';
 
+  var webpack = require('webpack');
+  var path    = require('path');
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     app: {
       tmp: 'tmp',
-      src: 'public/assets/js'
+      src: 'public/assets/js',
+      dist: 'public/dist'
     },
 
     jshint: {
@@ -33,7 +37,9 @@ module.exports = function(grunt) {
 
             // Use this in ES1?
             //var basename = path.basename( filename, path.extname(filename) );
-            //return basename.replace(/[-\.]([a-z])/g, function (g) { return g[1].toUpperCase(); });
+            //return basename.replace(/[-\.]([a-z])/g, function (g) {
+            //  return g[1].toUpperCase();
+            //});
           },
           templateSettings: {
             interpolate: /\{\{=(.+?)\}\}/g,
@@ -45,11 +51,73 @@ module.exports = function(grunt) {
           '<%= app.tmp %>/templates.js': ['<%= app.src %>/**/*.html']
         }
       }
+    },
+
+    watch: {
+      options: {
+        livereload: true
+      },
+      grunt: {
+        files: ['Gruntfile.js']
+      },
+      jst: {
+        files: ['<%= app.src %>/**/*.html'],
+        tasks: ['jst']
+      },
+      // Refresh the browser when clientside code change
+      assets: {
+        files: ['<%= app.dist %>/**/*'],
+        options: {
+          spawn: false,
+          livereload: 35729
+        }
+      }
+    },
+
+    webpack: {
+      options: {
+        entry: './public/assets/js/index.js',
+        module: {
+          loaders: [
+            { test: path.join(__dirname, './public/assets/js'), loader: 'babel-loader' }
+          ]
+        },
+        resolve: {
+          alias: {
+            marionette: 'backbone.marionette'
+          },
+          modulesDirectories: ['node_modules', 'tmp', 'public/assets/js']
+        },
+        plugins: [
+          new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            _: 'underscore'
+          })
+        ],
+        cache: true,
+        watch: true
+      },
+
+      dev: {
+        output: {
+          path: path.join(__dirname, 'public/dist'),
+          filename: 'bundle.js',
+          pathinfo: true
+        },
+        debug: true
+      },
+
+      prod: {
+
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jst');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'jst', 'webpack:dev', 'watch']);
 };

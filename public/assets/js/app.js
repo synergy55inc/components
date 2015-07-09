@@ -64,7 +64,7 @@ app.on('before:start', function() {
 app.on('start', function() {
   app.vent.trigger('header:start');
   app.vent.trigger('contact:start');
-  app.vent.trigger('app:start');
+  app.vent.trigger('about:start');
 
   if (Backbone.history) {
     Backbone.history.start();

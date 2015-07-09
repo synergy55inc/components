@@ -23,7 +23,7 @@ app.on('about:show', function() {
   API.showAbout();
 });
 
-app.on('about:start', function() {
+app.vent.on('about:start', function() {
   var router = new AboutAppRouter({
     controller: API
   });

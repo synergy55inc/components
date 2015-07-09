@@ -54,7 +54,7 @@ app.on('contact:edit', function(id) {
   API.editContact(id);
 });
 
-app.on('contacts:start', function() {
+app.vent.on('contact:start', function() {
   var router = new ContactsAppRouter({
     controller: API
   });

@@ -8,8 +8,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     app: {
-      tmp: 'tmp',
-      src: 'public/assets/js',
+      tmp : 'tmp',
+      src : 'public/assets/js',
       dist: 'public/dist'
     },
 
@@ -19,10 +19,8 @@ module.exports = function(grunt) {
       },
       all: [
         '<%= app.src %>/**/*.js',
-        '!<%= app.src %>/apps/config/*.js',
         '!<%= app.src %>/vendor/*.js',
-        '!<%= app.src %>/apps/config/storage/localstorage.js',
-        'Gruntfile.js'
+        '!<%= app.src %>/apps/config/storage/localstorage.js'
       ]
     },
 
@@ -76,17 +74,17 @@ module.exports = function(grunt) {
 
     webpack: {
       options: {
-        entry: './public/assets/js/index.js',
+        entry: './<%= app.src %>/index.js',
         module: {
           loaders: [
-            { test: path.join(__dirname, './public/assets/js'), loader: 'babel-loader' }
+            { test: './<%= app.src %>', loader: 'babel-loader' }
           ]
         },
         resolve: {
           alias: {
             marionette: 'backbone.marionette'
           },
-          modulesDirectories: ['node_modules', 'tmp', 'public/assets/js']
+          modulesDirectories: ['node_modules', 'tmp', '<%= app.src %>']
         },
         plugins: [
           new webpack.ProvidePlugin({
@@ -101,7 +99,7 @@ module.exports = function(grunt) {
 
       dev: {
         output: {
-          path: path.join(__dirname, 'public/dist'),
+          path: './<%= app.dist %>/',
           filename: 'bundle.js',
           pathinfo: true
         },
@@ -119,5 +117,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['jshint', 'jst', 'webpack:dev', 'watch']);
+  grunt.registerTask('default', ['jshint','jst','webpack:dev','watch']);
 };

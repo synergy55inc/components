@@ -32,11 +32,19 @@
             ]
         },
         {
-            "name": "",
+            "name": "Show HTML and Styles",
             "patterns": [
                 "*.js",
                 "node_modules"
             ]
         }
+    ],
+    "jwolfe.file-tree-exclude.list": [
+      "node_modules",
+      ".git",
+      "test/**/*",
+      "bin/**/*",
+      "db/**/*",
+      "*.rb"
     ]
 }

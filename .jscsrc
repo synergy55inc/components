@@ -25,5 +25,6 @@
   "requireSpacesInsideObjectBrackets": "all",
   "requireSpaceBeforeBinaryOperators": ["+", "-", "/", "*", "=", "==", "===", "!=", "!=="],
   "requireLineFeedAtFileEnd": true,
-  "requireSpaceBetweenArguments" : true
+  "requireSpaceBetweenArguments" : true,
+  "validateParameterSeparator": ", "
 }

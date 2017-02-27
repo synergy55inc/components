@@ -20,5 +20,5 @@ bundle.js
 
 # ignore vim swap files
 *.swp
-
+bower_components
 /node_modules

@@ -13,7 +13,6 @@
     <link rel="import" href="../autocomplete-dataprovider.html">
 
     <link rel="import" href="../../paper-item/paper-item.html">
-    <link rel="import" href="../../paper-input/paper-input.html">
     <link rel="import" href="../../paper-item/paper-item-body.html">
     <link rel="import" href="../../iron-icon/iron-icon.html">
     <link rel="import" href="../../iron-icons/iron-icons.html">
@@ -26,12 +25,12 @@
     <input autofocus>
     <div class="vertical-section-container centered">
       <h3>Basic autocomplete</h3>
-      <demo-snippet>
+      <template is="dom-bind" id="example">
         <autocomplete-dataprovider id="autocomplete" data="{{data}}">
           <autocomplete-selector trigger-on-focus placeholder="USA States" data="{{data}}">
           </autocomplete-selector>
         </autocomplete-dataprovider>
-      </demo-snipper>
+      </template>
       <script>
       </script>
     </div>

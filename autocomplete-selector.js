@@ -8,16 +8,36 @@
           type:Number,
           value:200
         },
+        uidField : {
+          type : String,
+          value : 'value'
+        },
         placeholder:{
           type:String,
           value:'Enter few characters'
+        },
+        selectedList : {
+          type : Array,
+          value : function() {
+            return [];
+          }
+        },
+        renderData : {
+          type : Array,
+          value : function() {
+
+          }
         },
         closeOnSelect:{
           type:Boolean,
           value:false
         },
+        triggerOnFocus : {
+          type : Boolean,
+          value : false
+        },
         noItemsLabel:{
-          type:String,
+          type: String,
           value:"No Items Found"
         },
         data: {
@@ -33,6 +53,7 @@
           type: String,
           observer: "_valueChanged",
           notify:true,
+          value : null,
           reflectToAttribute:true
         },
         currentSelection:{
@@ -46,14 +67,6 @@
           type:Boolean,
           value:false
         },
-        searchParams:{
-          type:Object,
-          notify:true,
-          reflectToAttribute:true,
-          value:function(){
-            return undefined;
-          }
-        },
         selectedIndex:{
           type:Number,
           value:0,
@@ -65,18 +78,26 @@
       },
 
       listeners: {
-      'blur': '_clearAndClose',
+        'blur': '_clearAndClose'
+      },
+
+      _focussed : function() {
+        if(!this.showingContainer && this.triggerOnFocus) {
+          this.set('progress',true);
+          this.set('showingContainer', true);
+          var searchText = this.searchValue ? this.searchValue : '';
+          this._valueChanged(searchText);
+          this.$.searchBox.focus();
+        }
       },
 
       ready: function() {
-        this.searchValue = '';
         this.$.resultList.render()
       },
 
-      isDataEmpty : function(){
+      showEmpty : function(){
         return this.data.length == 0;
       },
-
 
       attached: function() {
         var handler = function(event){
@@ -96,9 +117,17 @@
 
       _highlightSelection:function(newValue,oldValue){
           var newLiId = 'li'+newValue; 
-          var oldLiId = 'li'+oldValue;
           var newLi = document.getElementById(newLiId);
-          var oldLi = document.getElementById(oldLiId);
+          if(oldValue || oldValue === 0) {
+            var oldLiId = 'li'+oldValue;
+            var oldLi = document.getElementById(oldLiId);
+            if(this.data[oldValue])
+               this.data[oldValue].selected = false;
+          }
+          if(this.data[newValue]) {
+            this.data[newValue].selected = true;
+          }
+          this.currentSelection = this.data[newValue];
           if(newLi){
            newLi.classList.add("selected");
            newLi.classList.remove("unselected"); 
@@ -125,13 +154,7 @@
       },
 
       _mouseover:function(event){
-        event.target.classList.add("mouse-selected");
-        event.target.classList.remove("mouse-unselected");
-      },
-
-      _mouseout:function(event){
-        event.target.classList.add("mouse-unselected");
-        event.target.classList.remove("mouse-selected");
+        this.set('selectedIndex',event.model.index);
       },
 
       keyHandler:function(event){
@@ -142,18 +165,12 @@
           if((this.selectedIndex) == 0 ){
             return;
           }
-          this.data[this.selectedIndex].selected = false;
           this.selectedIndex--;
-          this.data[this.selectedIndex].selected = true;
-          this.currentSelection = this.data[this.selectedIndex];
         }else if(event.detail.keyboardEvent.keyCode == 40){
           if(this.selectedIndex == (this.data.length - 1) ){
             return;
           }
-          this.data[this.selectedIndex].selected = false;
           this.selectedIndex++;
-          this.data[this.selectedIndex].selected = true;
-          this.currentSelection = this.data[this.selectedIndex];
         }else{
           this._selectCurrentItem();
         }
@@ -177,13 +194,14 @@
     },
 
     show:function(data){
-        this.set('progress',false);
+        this.set('progress', false);
         var collapse = this.$.collapse
         this.selectedIndex = 0;
         this.updateScroll();
-        if(this.data.length > 0 && this.data[this.selectedIndex])
+        if(this.data.length > 0 && this.data[this.selectedIndex]) {
           this.data[this.selectedIndex].selected = true;
           this.currentSelection = this.data[this.selectedIndex];
+        }
         if(!collapse.opened && this.searchValue!=""){
           collapse.toggle()
           this.$.resultList.render();
@@ -191,13 +209,13 @@
       },
 
       _valueChanged: function(text) {
+        if(text === null) return;
         var collapse = this.$.collapse
-        if (text != '') {
+        if (text != '' || this.triggerOnFocus) {
           this.debounce('search',function(){
-            //this.set('searchParams', [{'scrip':text}]);
             this.set('progress',true);
             this.set('showingContainer',true);
-            this.fire('filter',text)
+            this.fire('autocomplete-filtered-text',text);
           },this.delay);
         } else{
           this._clearAndClose();
@@ -212,29 +230,41 @@
 
       //Click event from the body.
       _clearAndClose:function(event){
-        this.set('searchValue', ''); 
         this.set('showingContainer',false);
-        var collapse = this.$.collapse
-        if (collapse.opened) {
-          collapse.toggle();
-        }
       },
 
      
       _selectCurrentItem:function(event){
+        var item = {};
+        var index = 0;
         if(event){
-          this.set('value', event.model.item);
+          item = event.model.item;
+          index = event.model.index;
         }else{
-          this.set('value', this.currentSelection);
+          item = this.currentSelection;
+          index = this.selectedIndex;
           this.querySelector("#ripple"+this.selectedIndex).simulatedRipple();
         }
-
+        this.set('value', item);
         this.fire('select',this.value);
-
-        if(this.hasAttribute('close-on-select')){
+        this.$.searchBox.focus();
+        this.$.selectedList.render();
+        if(this.closeOnSelect){
           this._clearAndClose();
-        }else{
-          this.$.searchBox.focus();
+          return;
         }
+        this.selectedList.push(item);
+        let set = new Set();
+        var self = this;
+        let unique = this.selectedList.filter(function(currentItem) {
+          var isUnique = set.has(currentItem[self.uidField])
+          set.add(currentItem[self.uidField])
+          return !isUnique;
+        })
+        this.set('selectedList', unique);
+      },
+
+      _removeSelection : function(event) {
+        this.splice('selectedList', event.model.index, 1);
       }
     });

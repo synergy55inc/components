@@ -1,13 +1,31 @@
+/**
+ * Provides data for autocomplete.
+ * 
+ * This element is seperated from autocomplete selector so it can deal with how data is retrieved by implementing filter method,  So data can be retireved by sync, async or cached irrespective of how autocomplete works
+ * 
+ * This element listens for  autocomplete-filtered-text event from the autocomplete-selector,
+ * 
+ */
 Polymer({
       is: "autocomplete-dataprovider",
       hostAttributes:{
         
       },
       properties: {
+        /* 
+         * Autocomplete results. should be used to bind with autcomplete-selectors data.
+         * @type { Array => Object } Object Must have keys label and value
+         */
         data : {
             type : Array,
             notify : true,
         },
+        /*
+         * Retrieves data asynchronously
+         * 
+         * If this property is true, then filter method should return a promise which resolves to Array
+         * else it can return Array of Objects
+         */ 
         remote : {
             type : Boolean,
             notify : true,
@@ -15,9 +33,9 @@ Polymer({
         }
       },
       listeners : {
-          'autocomplete-filtered-text' :  'getData'
+          'autocomplete-filtered-text' :  '_getData'
       },
-      getData : function(event) {
+      _getData : function(event) {
           var self = this;
           var result = this.filter(event);
           if(!this.remote) {
@@ -28,6 +46,15 @@ Polymer({
             });
           }
       },
+      /*
+        * Allows customization of retrieving data.
+        * Example:
+        * document.querySelector('autocomplete-dataprovider').filter = function() { console.log('Implement custom logic')}
+        * 
+        * @returns {Promise<Array> | Array} depeneding on the remote property
+        * 
+        * 
+        */
       filter : function(event) {
           var text = event.detail.toUpperCase();
           var states = [

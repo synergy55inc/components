@@ -147,12 +147,12 @@
                   </ul>
                   <ul id="ul" role="presentation">
                     <template id="resultList" is="dom-repeat" items="{{data}}" indexAs="index">
-                      <li id$="{{liId(index)}}" class$="{{getClass(index)}}" on-tap="_selectCurrentItem" on-mouseover="_mouseover">
-                         <paper-ripple id$="{{rippleId(index)}}" style="pointer-events: none;"></paper-ripple>
+                      <li id$="{{_liId(index)}}" class$="{{_getClass(index)}}" on-tap="_selectCurrentItem" on-mouseover="_mouseover">
+                         <paper-ripple id$="{{_rippleId(index)}}" style="pointer-events: none;"></paper-ripple>
                          <paper-item style="pointer-events: none;">{{item.label}}</paper-item>
                        </li>
                     </template>
-                    <template is="dom-if" if="{{showEmpty(data)}}">
+                    <template is="dom-if" if="{{_showEmpty(data)}}">
                       <li>
                         <paper-item style="pointer-events: none;">{{noItemsLabel}}</paper-item>
                       </li>
@@ -160,7 +160,7 @@
                   </ul>
                 </iron-collapse>
           </autocomplete>
-          <iron-a11y-keys keys="up down esc enter" on-keys-pressed="keyHandler"></iron-a11y-keys>
+          <iron-a11y-keys keys="up down esc enter" on-keys-pressed="_keyHandler"></iron-a11y-keys>
         </div>
 
   </template>

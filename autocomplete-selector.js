@@ -312,10 +312,10 @@ Polymer({
     /**
      * Fired when a new selection is made.
      *
-     * @event select
+     * @event autocomplete-select
      * @param {Object} Item selected
      */
-    this.fire('select', this.value);
+    this.fire('autocomplete-select', this.value);
     this.$.searchBox.focus();
     this.$.selectedList.render();
     if (!this.multi) {

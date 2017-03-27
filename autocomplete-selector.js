@@ -169,11 +169,11 @@ Polymer({
 
 
   _highlightSelection: function (newValue, oldValue) {
-    var newLiId = 'li' + newValue;
-    var newLi = document.getElementById(newLiId);
+    var newLiId = '#li' + newValue;
+    var newLi = this.$$(newLiId);
     if (oldValue || oldValue === 0) {
-      var oldLiId = 'li' + oldValue;
-      var oldLi = document.getElementById(oldLiId);
+      var oldLiId = '#li' + oldValue;
+      var oldLi = this.$$(oldLiId);
       if (this.data[oldValue])
         this.data[oldValue].selected = false;
     }
@@ -231,8 +231,8 @@ Polymer({
   },
 
   _updateScroll: function () {
-    var ul = document.getElementById("ul");
-    var li = document.getElementById("li" + this.selectedIndex);
+    var ul = this.$$("#ul");
+    var li = this.$$("#li" + this.selectedIndex);
     if (!li) {
       return;
     }
@@ -306,7 +306,7 @@ Polymer({
     } else {
       item = this.currentSelection;
       index = this.selectedIndex;
-      this.querySelector("#ripple" + this.selectedIndex).simulatedRipple();
+      this.$$("#ripple" + this.selectedIndex).simulatedRipple();
     }
     this.set('value', item);
     /**

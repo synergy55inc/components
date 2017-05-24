@@ -1,0 +1,102 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "jasmine": true,
+        "jquery": true
+
+    },
+    "parserOptions": {
+        "ecmaVersion": 2016,
+        "sourceType": "module"
+    },
+    "globals": {
+        "_": true,
+        "$": true,
+        "require": true,
+        "browser": true,
+        "Backbone": true
+    },
+    "rules": {
+      //Stylistic
+      "space-before-function-paren": ["error", "never"],
+      "brace-style": [ "error", "1tbs",
+        {
+          "allowSingleLine": true
+        }
+      ],
+      "no-mixed-spaces-and-tabs": "error",
+      "no-multiple-empty-lines": ["error", { "max": 1 } ],
+      "operator-linebreak": ["error", "after"],
+      "space-unary-ops": ["error",
+        {
+          "words": false,
+          "nonwords": false
+        }
+      ],
+      "space-in-parens": ["error", "never"],
+      "comma-dangle": ["error", "never"],
+      "comma-spacing": ["error", { "before": false, "after": true }],
+      "no-trailing-spaces": "error",
+      "space-before-blocks": ["error", "always"],
+      // "key-spacing": ["error", {
+
+      //   "multiLine": {
+      //     "beforeColon": false,
+      //     "afterColon": true
+      //   },
+      //   "align": {
+      //     "beforeColon": true,
+      //     "afterColon": true,
+      //     "on": "colon",
+      //     "mode": "minimum"
+      //     }
+      //   }
+      // ],
+      "keyword-spacing": ["error",
+        {}
+      ],
+      "array-bracket-spacing": ["error", "never"],
+      "space-infix-ops": "error",
+      "eol-last": "error",
+      "indent": ["error", 2,
+        {
+          "SwitchCase": 1,
+          "VariableDeclarator": { "var": 2, "let": 2, "const": 3 }
+        }
+      ],
+      "quotes": ["error","single"],
+      "new-cap": 0,
+
+      //Possible Errors
+      "no-console": "off",
+      "no-debugger": "error",
+      "no-empty": "error",
+
+      //Best Practices
+      "no-with": "error",
+      "no-multi-str": "error",
+      "dot-location": ["error", "property"],
+      "curly": ["error", "all"],
+      "guard-for-in": "error",
+      "wrap-iife": ["error", "any"],
+      "eqeqeq": "error",
+      "no-caller": "error",
+      "no-new": "error",
+
+      //Variables
+      "no-use-before-define": [ 0,
+        {
+          "functions": false
+        }
+      ],
+      "no-undef": "error",
+      "no-unused-vars": 0
+
+      //Strict Mode
+      //"strict": ["error", "safe"]
+      }
+}

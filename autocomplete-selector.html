@@ -16,43 +16,46 @@
       <g id="expand-more"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></g>
     </svg>
    </defs>
-</iron-iconset-svg> 
+</iron-iconset-svg>
 
 <dom-module id="autocomplete-selector" on-blur="_clearAndClose">
   <style is="custom-style" include="iron-flex iron-flex-alignment">
-    autocomplete{
+    autocomplete {
       background-color: rgb(250, 250, 250);
-      box-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 5px 0px;
+      box-shadow: none;
+      border: 1px solid #ddd;
       display: block;
       border-radius: 2px;
-      font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+      font-family: "OpenSans", sans-serif;
       height: 40px;
       position: relative;
     }
 
-    .selected{
+    .selected {
       background-color: gainsboro;
-      border-left: 4px solid cadetblue;
+      border-left: 4px solid #428bca;
     }
 
-    .unselected{
-     border-left: 4px solid transparent; 
+    .unselected {
+     border-left: 4px solid transparent;
     }
 
-    autocomplete ul{
+    autocomplete ul {
       background-color: rgb(250, 250, 250);
-      box-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 5px 0px;
-      margin : 0px;
+      box-shadow: 0px 3px 10px 0px rgba(155,155,155,.5);
+      border: 1px solid #ddd;
+      border-top: none;
+      margin: 0px;
       max-height: 225.5px;
       overflow-y: auto;
-      padding : 0px;
+      padding: 0px;
       position: relative;
       top: 40px;
       z-index: 49;
     }
 
-    autocomplete ul li{
-      position:relative;
+    autocomplete ul li {
+      position: relative;
       border-top-color: rgb(221, 221, 221);
       border-top-style: solid;
       border-top-width: 1px;
@@ -60,9 +63,8 @@
       height: 40px;
       line-height: 40px;
       list-style-type: none;
-      margin : 0px;
-      overflow : hidden;
-      padding : 0px 15px;
+      margin: 0px;
+      overflow: hidden;
       text-align: left;
       transition-delay: 0s;
       transition-duration: 0.15s;
@@ -70,9 +72,9 @@
       transition-timing-function: linear;
     }
 
-    autocomplete ul li.selected{
+    autocomplete ul li.selected {
       background-color: gainsboro;
-      border-left: 4px solid cadetblue;
+      border-left: 4px solid #428bca;;
     }
 
     autocomplete input {
@@ -92,77 +94,82 @@
       background: 0 0;
     }
 
-    paper-item{
+    paper-item {
       font-size:14px;
     }
 
     .selection {
       background-color: gainsboro;
-      border-left: 6px solid cadetblue;
+      border-left: 6px solid #428bca;
     }
 
-    paper-icon-button{
+    paper-icon-button {
+      color: #666;
       position: absolute;
       right: 0px;
       z-index: 100;
     }
 
-    paper-progress{
+    paper-progress {
       position: absolute;
       bottom: -40px;
       width: 100%;
     }
 
-    #searchBox{
-      text-transform: uppercase;
+    ::-webkit-input-placeholder {
+      font-style: italic;
     }
   </style>
+
   <template>
-        <div>
-          <autocomplete>
-                <div role="listbox">
-                  <div style="position:relative">
-                    <input id="searchBox" type="text" placeholder="[[placeholder]]" class="paper-input-input" on-focus="_focussed" value="{{searchValue::input}}">
-                      <template is="dom-if" if="{{showingContainer}}">
-                          <paper-icon-button icon="auto-icons:highlight-off" on-tap="_clearAndClose"></paper-icon-button>
-                      </template>
-                      <template is="dom-if" if="{{!showingContainer}}" hidden$="{{!triggerOnFocus}}">
-                          <paper-icon-button icon="auto-icons:expand-more" on-tap="_focussed"></paper-icon-button>
-                      </template>
-                    </input>
-                    <template is="dom-if" if="{{progress}}">
-                      <paper-progress secondaryProgress="3" indeterminate value="3"></paper-progress> 
-                    </template>
-                  </div>
-                </div>
-                <iron-collapse id="collapse" opened="[[showingContainer]]">
-                  <ul id="selectedul" role="presentation">
-                    <template id="selectedList" is="dom-repeat" items="{{selectedList}}">
-                      <li class="selection">
-                         <paper-item class="layout justified" style="pointer-events: none;">
-                          <span>{{item.label}}</span> <a on-tap="_removeSelection">clear</a>
-                         </paper-item>
-                       </li>
-                    </template>
-                  </ul>
-                  <ul id="ul" role="presentation">
-                    <template id="resultList" is="dom-repeat" items="{{data}}" indexAs="index">
-                      <li id$="{{_liId(index)}}" class$="{{_getClass(index)}}" on-tap="_selectCurrentItem" on-mouseover="_mouseover">
-                         <paper-ripple id$="{{_rippleId(index)}}" style="pointer-events: none;"></paper-ripple>
-                         <paper-item style="pointer-events: none;">{{item.label}}</paper-item>
-                       </li>
-                    </template>
-                    <template is="dom-if" if="{{_showEmpty(data)}}">
-                      <li>
-                        <paper-item style="pointer-events: none;">{{noItemsLabel}}</paper-item>
-                      </li>
-                    </template>
-                  </ul>
-                </iron-collapse>
-          </autocomplete>
-          <iron-a11y-keys keys="up down esc enter" on-keys-pressed="_keyHandler"></iron-a11y-keys>
+    <div>
+      <autocomplete>
+        <div role="listbox">
+          <div style="position:relative">
+            <input id="searchBox" type="text" placeholder="[[placeholder]]" class="paper-input-input" on-focus="_focussed" value="{{searchValue::input}}">
+              <template is="dom-if" if="{{showingContainer}}">
+                <paper-icon-button icon="auto-icons:highlight-off" on-tap="_clearAndClose"></paper-icon-button>
+              </template>
+              <template is="dom-if" if="{{!showingContainer}}" hidden$="{{!triggerOnFocus}}">
+                <paper-icon-button icon="auto-icons:expand-more" on-tap="_focussed"></paper-icon-button>
+              </template>
+            </input>
+            <template is="dom-if" if="{{progress}}">
+              <paper-progress secondaryProgress="3" indeterminate value="3"></paper-progress>
+            </template>
+          </div>
         </div>
 
+        <iron-collapse id="collapse" opened="[[showingContainer]]">
+          <ul id="selectedul" role="presentation">
+            <template id="selectedList" is="dom-repeat" items="{{selectedList}}">
+              <li class="selection">
+                <paper-item class="layout justified" style="pointer-events: none;">
+                <span>{{item.label}}</span> <a on-tap="_removeSelection">clear</a>
+                </paper-item>
+              </li>
+            </template>
+          </ul>
+
+          <ul id="ul" role="presentation">
+            <template id="resultList" is="dom-repeat" items="{{data}}" indexAs="index">
+              <li id$="{{_liId(index)}}" class$="{{_getClass(index)}}" on-tap="_selectCurrentItem" on-mouseover="_mouseover">
+                <paper-ripple id$="{{_rippleId(index)}}" style="pointer-events: none;"></paper-ripple>
+                <paper-item style="pointer-events: none;">{{item.label}}</paper-item>
+              </li>
+            </template>
+            <template is="dom-if" if="{{_showEmpty(data)}}">
+              <li>
+                <paper-item style="pointer-events: none;">{{noItemsLabel}}</paper-item>
+              </li>
+            </template>
+          </ul>
+        </iron-collapse>
+      </autocomplete>
+      <iron-a11y-keys keys="up down esc enter" on-keys-pressed="_keyHandler"></iron-a11y-keys>
+    </div>
   </template>
+
   <script src="autocomplete-selector.js"></script>
+
 </dom-module>

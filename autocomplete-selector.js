@@ -293,7 +293,11 @@ Polymer({
   },
 
   _clearAndClose: function (event) {
+    let triggerOnFocus = this.triggerOnFocus;
+    this.triggerOnFocus = false;
+    this.set('searchValue', '');
     this.set('showingContainer', false);
+    this.triggerOnFocus = triggerOnFocus;
   },
 
 

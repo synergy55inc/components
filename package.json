@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/synergy55inc/poc#readme",
   "devDependencies": {
+    "eslint": "^4.0.0",
     "polyserve": "^0.16.0"
   }
 }

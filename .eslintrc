@@ -18,7 +18,8 @@
         "$": true,
         "require": true,
         "browser": true,
-        "Backbone": true
+        "Backbone": true,
+        "Polymer": true
     },
     "rules": {
       //Stylistic

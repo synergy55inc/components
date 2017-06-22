@@ -126,7 +126,7 @@
       <autocomplete>
         <div role="listbox">
           <div style="position:relative">
-            <input id="searchBox" type="text" placeholder="[[placeholder]]" class="paper-input-input" on-focus="_focussed" value="{{searchValue::input}}">
+            <input tab-index="-1" id="searchBox" type="text" placeholder="[[placeholder]]" class="paper-input-input" on-focus="_focussed" value="{{searchValue::input}}">
               <template is="dom-if" if="{{showingContainer}}">
                 <paper-icon-button icon="auto-icons:highlight-off" on-tap="_clearAndClose"></paper-icon-button>
               </template>

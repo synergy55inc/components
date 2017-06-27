@@ -1,0 +1,92 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module is="sef-alert">
+  <style is="custom-style">
+    :root {
+      --alert-padding: 15px;
+    }
+    .alert {
+      padding: var(--alert-padding);
+      margin-bottom: 20px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+    .alert h4 {
+      margin-top: 0;
+      color: inherit;
+    }
+    .alert .alert-link {
+      font-weight: bold;
+    }
+
+    /*Improve alignment and spacing of inner content*/
+    .alert > p,
+    .alert > ul {
+      margin-bottom: 0;
+    }
+    .alert > p + p {
+      margin-top: 5px;
+    }
+
+    /* DISMISSABLE ALERTS */
+
+    /*Expand the right padding and account for the close button's positioning.*/
+    .alert-dismissable {
+      padding-right: (var(--alert-padding) + 20);
+
+    // Adjust close link position
+    .alert-dismissable .close {
+      position: relative;
+      top: -2px;
+      right: -21px;
+      color: inherit;
+    }
+
+    .alert-success {
+      background-color: #dff0d8;
+      border-color: #468847;
+      color: #468847;
+    .alert-success hr {
+      border-top-color: #468847;
+    }
+    .alert-success .alert-link {
+      color: #468847;
+    }
+
+    .alert-warning {
+      background-color: #fcf8e3;
+      border-color: #c09853;
+      color: #c09853;
+    .alert-warning hr {
+      border-top-color: #c09853;
+    }
+    .alert-warning .alert-link {
+      color: #c09853;
+    }
+
+    .alert-danger {
+      background-color: #f2dede;
+      border-color: #b94a48;
+      color: #b94a48;
+    .alert-danger hr {
+      border-top-color: #b94a48;
+    }
+    .alert-danger .alert-link {
+      color: #b94a48;
+    }
+
+    /*@state-info-text:                #3a87ad;
+    @state-info-bg:                  #d9edf7;
+    @state-info-border:              darken(spin(@state-info-bg, -10), 7%);*/
+
+  </style>
+  <template>
+    <div id="alert" hidden="{{!show}}" class="fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" on-click="closeAlert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>{{type}}!</strong> {{message}}
+    </div>
+  </template>
+  <script src="sef-alert.js"></script>
+</dom-module>

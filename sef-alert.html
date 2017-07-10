@@ -1,7 +1,66 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <dom-module is="sef-alert">
-  <style is="custom-style" include="shared-styles"></style>
+  <style>
+    :root {
+      --alert-padding: 20px;
+      --danger: #b94a48;
+      --warning: #c09853;
+      --info: #3a87ad;
+      --success: #468847;
+    }
+
+    .alert {
+      padding: var(--alert-padding);
+      margin-bottom: 15px;
+      border: 0;
+      border-left: 3px solid;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+    .alert-dismissable {
+      padding-right: calc(var(--alert-padding) + 15px);
+    }
+    .alert-dismissable .close {
+      position: relative;
+      top: -2px;
+      right: -21px;
+      color: inherit;
+    }
+
+    /* Improve alignment and spacing of inner content */
+    .alert > p,
+    .alert > ul {
+      margin-bottom: 0;
+    }
+    .alert > p + p {
+      margin-top: 5px;
+    }
+
+    .alert-danger, .alert-error {
+      border-color: var(--danger);
+      color: var(--danger);
+      background-color: #eed3d7;
+    }
+    .alert-success {
+      border-color: var(--success);
+      color: var(--success);
+      background-color: #dff0d8;
+    }
+    .alert-warning {
+      border-color: var(--warning);
+      color: var(--warning);
+      background-color: #fcf8e3;
+    }
+    .alert-info {
+      border-color: var(--info);
+      color: var(--info);
+      background-color: #d9edf7;
+    }
+  </style>
+
   <template>
     <div id="alert" hidden="{{!show}}" class$="fade in alert alert-{{typeClass}} {{dismissClass}}" role="alert">
       <template is="dom-if" if="{{dismissClass}}">

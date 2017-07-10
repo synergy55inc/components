@@ -28,8 +28,25 @@
       top: -2px;
       right: -21px;
       color: inherit;
+      opacity: .3;
+      background: transparent;
+      border: 0;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 0;
+      -webkit-appearance: none;
     }
 
+    .alert-dismissable .close:hover,
+    .alert-dismissable .close:focus {
+      opacity: .5;
+      color: black;
+    }
+
+    button.close {
+      float: right;
+      cursor: pointer;
+    }
     /* Improve alignment and spacing of inner content */
     .alert > p,
     .alert > ul {

@@ -8,6 +8,7 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../iron-iconset-svg/iron-iconset-svg.html">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 <iron-iconset-svg name="auto-icons">
   <defs>
@@ -20,20 +21,24 @@
 
 <dom-module id="autocomplete-selector" on-blur="_clearAndClose">
   <style is="custom-style" include="iron-flex iron-flex-alignment">
+    :root {
+      --sef-primary:  #428bca;
+      --sef-font: "Open Sans", sans-serif;
+    }
     autocomplete {
       background-color: rgb(250, 250, 250);
       box-shadow: none;
       border: 1px solid #ddd;
       display: block;
       border-radius: 2px;
-      font-family: "OpenSans", sans-serif;
+      font-family: var(--sef-font);
       height: 40px;
       position: relative;
     }
 
     .selected {
       background-color: gainsboro;
-      border-left: 4px solid #428bca;
+      border-left: 4px solid var(--sef-primary);
       border-top: none;
     }
 
@@ -75,7 +80,7 @@
 
     autocomplete ul li.selected {
       background-color: gainsboro;
-      border-left: 4px solid #428bca;;
+      border-left: 4px solid var(--sef-primary);;
     }
 
     autocomplete input {
@@ -88,6 +93,7 @@
       box-shadow: none;
       padding: 0 15px;
       font-size: 14px;
+      font-family: var(--sef-font);
       line-height: 40px;
       height: 40px;
       outline: 0;
@@ -97,11 +103,12 @@
 
     paper-item {
       font-size:14px;
+      font-family: var(--sef-font);
     }
 
     .selection {
       background-color: gainsboro;
-      border-left: 6px solid #428bca;
+      border-left: 6px solid var(--sef-primary);
     }
 
     paper-icon-button {
